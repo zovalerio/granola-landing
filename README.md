@@ -8,13 +8,38 @@ Página promocional do sistema Granola (CRM jurídico), pronta para deploy no Ne
 
 ```
 granola-landing/
-├── index.html          → landing completa (CSS + JS inline)
-├── netlify.toml        → build config + headers de segurança
-├── _redirects          → regras de redirecionamento
+├── index.html                              → landing completa (CSS + JS inline)
+├── netlify.toml                            → build config + headers de segurança
+├── _redirects                              → regras de redirecionamento
+├── netlify/functions/submission-created.js → cria cobrança Asaas automática no submit
 ├── assets/
-│   └── favicon.svg     → ícone Granola
-└── README.md           → este arquivo
+│   └── favicon.svg                         → ícone Granola
+└── README.md                               → este arquivo
 ```
+
+## 💳 Integração Asaas (automática)
+
+Toda vez que alguém submete o form, a função `netlify/functions/submission-created.js`:
+1. Lê os dados do cadastro
+2. Cria o cliente na Asaas (`POST /v3/customers`)
+3. Cria uma cobrança `billingType=UNDEFINED` (cliente escolhe PIX/boleto/cartão na mesma tela)
+4. Asaas envia e-mail + SMS com o link de pagamento direto pro cliente
+
+### Variáveis de ambiente a configurar no Netlify
+
+Em **Site settings → Environment variables → Add a variable**:
+
+| Chave | Valor |
+|-------|-------|
+| `ASAAS_API_KEY` | sua chave Asaas (`$aact_prod_...` ou `$aact_hmlg_...`) |
+| `ASAAS_ENV` | `production` (produção) ou `sandbox` (testes) |
+
+Onde obter a chave: painel Asaas → **Integrações → Gerar Nova Chave de API**.
+Começa em sandbox (api-sandbox.asaas.com), testa com CPF `24971563792` (CPF de teste oficial), vira produção só depois.
+
+### Logs da função
+
+Netlify → **Functions** → `submission-created` → **Logs**. Cada execução mostra o ID da submission, ID do cliente Asaas e a `invoiceUrl` gerada.
 
 Tudo self-contained. Sem dependências de build — só fontes do Google Fonts via CDN.
 
@@ -68,7 +93,7 @@ Netlify emite certificado Let's Encrypt automaticamente após a propagação do 
 
 ## 📧 Formulário de cadastro
 
-O formulário da seção "Garantir minha licença" usa **Netlify Forms** (grátis, 100 submissões/mês no plano free).
+O formulário da seção "Garantir minha licença" usa **Netlify Forms** (grátis, 100 submissões/mês no plano free) + a função serverless acima.
 
 ### Onde ver os envios
 
@@ -76,10 +101,11 @@ O formulário da seção "Garantir minha licença" usa **Netlify Forms** (gráti
 2. Formulário chamado **`granola-cadastro`**
 3. Cada envio traz: nome, OAB, CPF, e-mail, WhatsApp, plano, forma de pagamento, origem, observações
 
-### Notificações por e-mail
+### Notificações por e-mail (IMPORTANTE — configurar logo após primeiro deploy)
 
-1. Em **Forms** → **Settings & usage** → **Form notifications**
+1. Em **Forms** → **Settings & usage** → **Form notifications** → **Add notification** → **Email**
 2. Adicione seu e-mail para receber alerta a cada novo cadastro
+3. Paralelo a isso, o cliente recebe automaticamente o e-mail+SMS da Asaas com o link de pagamento (via função serverless)
 
 ---
 

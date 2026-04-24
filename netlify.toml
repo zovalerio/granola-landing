@@ -5,10 +5,14 @@
 
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 # Detecção do formulário Netlify Forms
 [build.processing]
   skip_processing = false
+
+[functions]
+  node_bundler = "esbuild"
 
 [build.processing.html]
   pretty_urls = true
