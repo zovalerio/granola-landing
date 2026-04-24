@@ -1,0 +1,1679 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Granola — CRM para advogados · pagamento único, dados seus</title>
+<meta name="description" content="O CRM jurídico que não aluga seus dados. Pagamento único, licença vitalícia, funciona offline. DataJud, PJe, e-SAJ, Projudi integrados. Feito por quem advoga." />
+<meta name="theme-color" content="#332030" />
+<meta property="og:title" content="Granola — do grão ao sistema" />
+<meta property="og:description" content="CRM para advogados com pagamento único, dados locais e soberania sobre conveniência." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://granola.app.br" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ========================================================================
+   GRANOLA — Landing page (Brandbook v2 · Abril 2026)
+   Reaproveita o mesmo sistema de design do produto.
+   ========================================================================*/
+:root{
+  --gnl-roxo:#332030;
+  --gnl-dourado:#C69E5B;
+  --gnl-marfim:#F0ECE8;
+  --gnl-tinta:#2A1829;
+  --gnl-roxo-profundo:#1E1220;
+  --gnl-roxo-claro:#4A3445;
+  --gnl-fumaca:#6B6675;
+  --gnl-sucesso:#3A7D44;
+  --gnl-alerta:#C47A3D;
+  --gnl-erro:#A83A3A;
+  --r-card:6px;
+  --r-pill:999px;
+  --f-display:'Cormorant Garamond', Georgia, serif;
+  --f-text:'Inter', -apple-system, system-ui, sans-serif;
+  --f-mono:'JetBrains Mono', ui-monospace, Consolas, monospace;
+  --shadow-1: 0 1px 0 rgba(42,24,41,.04), 0 1px 2px rgba(42,24,41,.05);
+  --shadow-2: 0 1px 0 rgba(42,24,41,.04), 0 6px 24px -8px rgba(42,24,41,.12);
+  --shadow-elev: 0 24px 60px -20px rgba(30,18,32,.45);
+  --bg:#F0ECE8;
+  --surface:#FFFFFF;
+  --surface-alt:#FAF7F3;
+  --text:#2A1829;
+  --text-muted:#6B6675;
+  --border:rgba(42,24,41,.10);
+  --border-strong:rgba(42,24,41,.18);
+  --hairline:rgba(198,158,91,.55);
+}
+[data-theme="dark"]{
+  --bg:#1E1220;
+  --surface:#332030;
+  --surface-alt:#4A3445;
+  --text:#F0ECE8;
+  --text-muted:#B6ADBC;
+  --border:rgba(240,236,232,.10);
+  --border-strong:rgba(240,236,232,.18);
+  --shadow-1: 0 1px 0 rgba(0,0,0,.25), 0 1px 2px rgba(0,0,0,.35);
+  --shadow-2: 0 1px 0 rgba(0,0,0,.25), 0 6px 24px -8px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--f-text);
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+::selection{background:var(--gnl-dourado);color:var(--gnl-tinta)}
+a{color:inherit}
+img{display:block;max-width:100%}
+svg{display:block}
+
+/* Tipografia */
+.display-1{font-family:var(--f-display);font-weight:400;font-size:clamp(2.8rem, 6vw, 5.2rem);line-height:1.02;letter-spacing:-.015em}
+.display-2{font-family:var(--f-display);font-weight:400;font-size:clamp(2.2rem, 4vw, 3.5rem);line-height:1.08}
+.display-3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem, 3vw, 2.5rem);line-height:1.12}
+.lead{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.45rem;line-height:1.35;color:var(--text-muted)}
+.h4{font-family:var(--f-text);font-weight:700;font-size:.75rem;line-height:1.2;text-transform:uppercase;letter-spacing:.16em;color:var(--gnl-dourado)}
+.aux{font-family:var(--f-text);font-weight:400;font-size:.875rem;line-height:1.45;color:var(--text-muted)}
+.micro{font-family:var(--f-text);font-weight:500;font-size:.72rem;line-height:1.3;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase}
+.tech{font-family:var(--f-mono);font-weight:400;font-size:.8125rem;line-height:1.4}
+
+/* ===== TOPO ===== */
+.brand-strip{
+  background:var(--gnl-roxo-profundo);color:var(--gnl-marfim);
+  padding:10px 32px;display:flex;align-items:center;gap:16px;
+  border-bottom:1px solid var(--gnl-dourado);
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  flex-wrap:wrap;
+}
+.brand-strip .dot{width:4px;height:4px;border-radius:50%;background:var(--gnl-dourado);margin:0 4px}
+.brand-strip .right{margin-left:auto;display:flex;gap:14px;align-items:center;color:rgba(240,236,232,.65)}
+.theme-toggle{
+  appearance:none;border:1px solid rgba(198,158,91,.4);background:transparent;
+  color:var(--gnl-marfim);font-family:var(--f-text);font-size:.68rem;
+  letter-spacing:.16em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill);
+  cursor:pointer;transition:all .2s ease;font-weight:500;
+}
+.theme-toggle:hover{background:rgba(198,158,91,.12);border-color:var(--gnl-dourado)}
+
+.topnav{position:sticky;top:0;z-index:40;background:rgba(240,236,232,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 32px}
+[data-theme="dark"] .topnav{background:rgba(30,18,32,.9)}
+.topnav-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:4px;height:62px}
+.topnav a.lk{text-decoration:none;color:var(--text-muted);padding:8px 14px;border-radius:var(--r-pill);font-size:.8125rem;font-weight:500;white-space:nowrap;transition:all .15s ease}
+.topnav a.lk:hover{color:var(--text);background:rgba(198,158,91,.1)}
+.topnav .brandmark{display:flex;align-items:center;gap:10px;margin-right:28px;text-decoration:none}
+.topnav .brandmark .m{width:34px;height:34px;border-radius:50%;background:var(--gnl-roxo);display:grid;place-items:center;overflow:hidden;border:1px solid rgba(198,158,91,.3)}
+.topnav .brandmark .m svg{width:82%;height:82%}
+.topnav .brandmark .txt{font-family:var(--f-display);font-size:1.55rem;color:var(--text);font-weight:500;line-height:1}
+.topnav .brandmark .txt span{display:block;font-family:var(--f-text);font-size:.54rem;letter-spacing:.32em;color:var(--gnl-dourado);font-weight:600;margin-top:2px;text-transform:uppercase}
+.topnav .spc{flex:1}
+.topnav .cta{display:flex;gap:8px;align-items:center}
+
+/* ===== BOTÕES ===== */
+.btn{font-family:var(--f-text);font-weight:600;font-size:.9rem;border:none;border-radius:var(--r-card);cursor:pointer;padding:11px 20px;letter-spacing:.01em;transition:transform .08s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;display:inline-flex;align-items:center;gap:8px;justify-content:center;text-decoration:none}
+.btn-primary{background:var(--gnl-dourado);color:var(--gnl-tinta)}
+.btn-primary:hover{background:#d3ad6c;box-shadow:0 6px 18px -6px rgba(198,158,91,.6)}
+.btn-primary:active{transform:translateY(1px)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border-strong)}
+.btn-ghost:hover{background:rgba(198,158,91,.08);border-color:var(--gnl-dourado)}
+.btn-dark{background:var(--gnl-roxo);color:var(--gnl-marfim);border:1px solid var(--gnl-roxo)}
+.btn-dark:hover{background:var(--gnl-roxo-claro);border-color:var(--gnl-dourado)}
+.btn-danger{background:transparent;color:var(--gnl-erro);border:1px solid rgba(168,58,58,.4)}
+.btn-danger:hover{background:rgba(168,58,58,.08)}
+.btn-sm{padding:7px 12px;font-size:.78rem}
+.btn-lg{padding:14px 26px;font-size:.95rem}
+.btn-block{width:100%}
+
+/* ===== LAYOUT ===== */
+main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
+.section{margin:112px 0 0;scroll-margin-top:80px}
+.section:first-child{margin-top:0}
+.section-head{margin-bottom:40px;max-width:780px}
+.section-head .h4{margin-bottom:12px}
+.section-head h2{font-family:var(--f-display);font-weight:400;font-size:clamp(2rem, 4vw, 3rem);line-height:1.08;margin:0 0 12px;color:var(--text);letter-spacing:-.005em}
+.section-head p{margin:0;color:var(--text-muted);font-size:1.05rem;max-width:640px}
+.filete{height:1px;background:var(--gnl-dourado);width:48px;margin:16px 0 0}
+
+/* ===== HERO ===== */
+.hero{
+  background:var(--gnl-roxo);
+  border-radius:var(--r-card);
+  padding:72px 60px 60px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow-elev);
+  color:var(--gnl-marfim);
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:60px;
+  align-items:center;
+  min-height:640px;
+}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%, rgba(198,158,91,.14), transparent 60%);pointer-events:none}
+.hero::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gnl-dourado),transparent)}
+.hero-content{position:relative;z-index:2}
+.hero-content .eyebrow{color:var(--gnl-dourado);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;margin-bottom:20px}
+.hero-content h1{font-family:var(--f-display);font-weight:400;font-size:clamp(2.8rem, 5.5vw, 4.6rem);line-height:1.02;margin:0 0 18px;letter-spacing:-.015em}
+.hero-content h1 em{font-style:italic;color:var(--gnl-dourado);font-weight:400}
+.hero-content .tagline{font-family:var(--f-display);font-style:italic;color:rgba(240,236,232,.72);font-size:1.45rem;margin:0 0 28px;line-height:1.35;max-width:520px}
+.hero-content .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.hero-content .cta-row .btn-primary{padding:14px 26px;font-size:.95rem}
+.hero-content .cta-row .btn-ghost{color:var(--gnl-marfim);border-color:rgba(240,236,232,.3)}
+.hero-content .cta-row .btn-ghost:hover{background:rgba(240,236,232,.08);border-color:var(--gnl-dourado)}
+.hero-content .badges{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px;padding-top:22px;border-top:1px solid rgba(240,236,232,.12)}
+.hero-content .badge{display:flex;align-items:center;gap:8px;font-size:.78rem;color:rgba(240,236,232,.75)}
+.hero-content .badge svg{width:14px;height:14px;color:var(--gnl-dourado);flex-shrink:0}
+
+/* Card flutuante no hero com preview do app */
+.hero-preview{position:relative;z-index:2;perspective:1400px}
+.hero-preview-card{
+  background:var(--gnl-marfim);
+  border-radius:var(--r-card);
+  padding:20px;
+  box-shadow:0 50px 100px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(198,158,91,.3);
+  transform:rotateY(-6deg) rotateX(3deg);
+  transition:transform .5s ease;
+}
+.hero-preview-card:hover{transform:rotateY(-3deg) rotateX(1deg)}
+.hero-preview-card .mini-head{display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:1px solid rgba(42,24,41,.08);margin-bottom:14px}
+.hero-preview-card .mini-head .dots{display:flex;gap:5px}
+.hero-preview-card .mini-head .dots span{width:10px;height:10px;border-radius:50%;background:rgba(42,24,41,.15)}
+.hero-preview-card .mini-head .lbl{font-family:var(--f-mono);font-size:.68rem;color:rgba(42,24,41,.5);margin-left:auto}
+.mini-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+.mini-kpi{background:rgba(42,24,41,.03);padding:12px;border-radius:4px}
+.mini-kpi .l{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(42,24,41,.55);font-weight:600}
+.mini-kpi .v{font-family:var(--f-display);font-size:1.6rem;color:var(--gnl-tinta);line-height:1.1;margin-top:2px}
+.mini-kpi.accent{background:rgba(198,158,91,.12)}
+.mini-kpi.accent .v{color:var(--gnl-roxo)}
+.mini-table{font-size:.72rem}
+.mini-table .hdr{display:grid;grid-template-columns:1.5fr 1fr 0.7fr;gap:8px;padding:6px 8px;background:rgba(42,24,41,.04);color:rgba(42,24,41,.55);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.6rem;border-radius:4px}
+.mini-table .row{display:grid;grid-template-columns:1.5fr 1fr 0.7fr;gap:8px;padding:8px;border-bottom:1px solid rgba(42,24,41,.06);align-items:center;color:var(--gnl-tinta)}
+.mini-table .row:last-child{border-bottom:none}
+.mini-table .row .fatal{color:var(--gnl-erro);font-weight:600;font-size:.68rem}
+.mini-table .row .ok{color:var(--gnl-sucesso);font-weight:500;font-size:.68rem}
+
+/* Floating pill */
+.float-pill{position:absolute;background:var(--gnl-marfim);color:var(--gnl-tinta);padding:10px 16px;border-radius:var(--r-pill);box-shadow:0 20px 40px -10px rgba(0,0,0,.4);display:flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;border:1px solid rgba(198,158,91,.3);z-index:3}
+.float-pill svg{width:14px;height:14px;color:var(--gnl-sucesso)}
+.float-pill.tl{top:32px;left:-20px;animation:bob 4s ease-in-out infinite}
+.float-pill.br{bottom:44px;right:-20px;animation:bob 4s ease-in-out infinite reverse}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ===== PILARES (Por que Granola) ===== */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden}
+.pillar{padding:28px 24px;background:var(--surface)}
+.pillar .ic{width:42px;height:42px;border-radius:8px;background:rgba(198,158,91,.1);display:grid;place-items:center;margin-bottom:16px;color:var(--gnl-dourado)}
+.pillar .ic svg{width:22px;height:22px}
+.pillar h3{font-family:var(--f-display);font-weight:500;font-size:1.35rem;margin:0 0 8px;color:var(--text);line-height:1.2}
+.pillar p{margin:0;color:var(--text-muted);font-size:.875rem;line-height:1.5}
+.pillar .tag{display:inline-block;margin-top:12px;font-family:var(--f-mono);font-size:.68rem;color:var(--gnl-dourado);text-transform:uppercase;letter-spacing:.12em;font-weight:500}
+
+/* ===== DEMO (app shell embutido) ===== */
+.demo-wrap{background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow-2);border:1px solid var(--border);overflow:hidden}
+.demo-tabs{display:flex;gap:4px;padding:10px 10px 0;background:var(--surface-alt);border-bottom:1px solid var(--border);overflow-x:auto}
+.demo-tab{padding:9px 14px;font-size:.82rem;font-weight:500;color:var(--text-muted);cursor:pointer;border-radius:4px 4px 0 0;white-space:nowrap;display:flex;align-items:center;gap:7px;border:none;background:transparent;font-family:var(--f-text);transition:all .15s ease}
+.demo-tab svg{width:14px;height:14px}
+.demo-tab:hover{color:var(--text)}
+.demo-tab.active{color:var(--text);background:var(--surface);border:1px solid var(--border);border-bottom-color:var(--surface);margin-bottom:-1px;position:relative}
+.demo-tab.active::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--gnl-dourado)}
+.demo-body{padding:24px 28px;min-height:540px;background:var(--surface)}
+.demo-panel{display:none}
+.demo-panel.active{display:block;animation:fadein .3s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* KPIs demo */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;margin-bottom:20px}
+.kpi{padding:16px 18px;background:var(--surface);position:relative}
+.kpi .label{font-family:var(--f-text);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+.kpi .value{font-family:var(--f-display);font-weight:400;font-size:2rem;line-height:1.1;color:var(--text);margin-top:4px}
+.kpi .delta{font-family:var(--f-mono);font-size:.72rem;margin-top:4px;display:flex;align-items:center;gap:4px;color:var(--gnl-sucesso)}
+.kpi .delta svg{width:11px;height:11px}
+.kpi .delta.down{color:var(--gnl-erro)}
+.kpi .delta.flat{color:var(--text-muted)}
+.kpi.accent{background:linear-gradient(180deg, rgba(198,158,91,.08), transparent)}
+.kpi.accent .value{color:var(--gnl-roxo)}
+
+/* Card */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden}
+.card-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border)}
+.card-head h3{margin:0;font-family:var(--f-text);font-weight:600;font-size:.95rem;color:var(--text)}
+.card-head .h-actions{display:flex;gap:6px;align-items:center}
+.card-body.padded{padding:16px 18px}
+
+/* Table */
+.table{width:100%;border-collapse:collapse}
+.table th{text-align:left;font-family:var(--f-text);font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);padding:10px 18px;border-bottom:1px solid var(--border);background:var(--surface-alt)}
+.table td{padding:12px 18px;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--text);vertical-align:middle}
+.table tr:last-child td{border-bottom:none}
+.table tr{transition:background .12s ease}
+.table tbody tr:hover{background:rgba(198,158,91,.04);cursor:pointer}
+.table .name{font-weight:600;color:var(--text)}
+.table .secondary{display:block;font-size:.72rem;color:var(--text-muted);margin-top:2px}
+.table .cnj{font-family:var(--f-mono);font-size:.78rem;color:var(--text-muted)}
+.table td.num{font-family:var(--f-mono);text-align:right}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* Tags */
+.tag{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:var(--r-pill);font-size:.72rem;font-weight:500;font-family:var(--f-text);white-space:nowrap}
+.tag .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.tag-fatal{background:rgba(168,58,58,.12);color:var(--gnl-erro)}
+.tag-fatal .dot{background:var(--gnl-erro)}
+.tag-alerta{background:rgba(196,122,61,.14);color:var(--gnl-alerta)}
+.tag-alerta .dot{background:var(--gnl-alerta)}
+.tag-ok{background:rgba(58,125,68,.12);color:var(--gnl-sucesso)}
+.tag-ok .dot{background:var(--gnl-sucesso)}
+.tag-neutro{background:rgba(107,102,117,.15);color:var(--text-muted)}
+.tag-neutro .dot{background:var(--gnl-fumaca)}
+.tag-dourado{background:rgba(198,158,91,.18);color:#8a6b2f}
+.tag-dourado .dot{background:var(--gnl-dourado)}
+
+/* Alerts */
+.alerts{padding:14px 18px;display:flex;flex-direction:column;gap:10px}
+.alert{display:flex;align-items:flex-start;gap:11px;padding:12px 14px;border-radius:var(--r-card);background:var(--surface-alt);border-left:3px solid var(--gnl-fumaca)}
+.alert .ic{width:16px;height:16px;flex-shrink:0;margin-top:1px;color:var(--text-muted)}
+.alert .ic svg{width:16px;height:16px}
+.alert .body{flex:1;font-size:.82rem}
+.alert .title{font-weight:600;color:var(--text);margin-bottom:2px}
+.alert .desc{color:var(--text-muted);font-size:.76rem;line-height:1.4}
+.alert.urgent{border-left-color:var(--gnl-erro);background:rgba(168,58,58,.06)}
+.alert.urgent .ic{color:var(--gnl-erro)}
+.alert.warn{border-left-color:var(--gnl-alerta);background:rgba(196,122,61,.06)}
+.alert.warn .ic{color:var(--gnl-alerta)}
+.alert.info{border-left-color:var(--gnl-dourado);background:rgba(198,158,91,.06)}
+.alert.info .ic{color:var(--gnl-dourado)}
+.alert.ok{border-left-color:var(--gnl-sucesso);background:rgba(58,125,68,.05)}
+.alert.ok .ic{color:var(--gnl-sucesso)}
+
+/* Calendar */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;padding:12px}
+.dow{text-align:center;padding:6px;font-size:.66rem;color:var(--text-muted);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.day{text-align:center;padding:8px 4px;font-size:.82rem;color:var(--text);border-radius:4px;cursor:pointer;position:relative;min-height:32px;font-family:var(--f-mono)}
+.day:hover{background:rgba(198,158,91,.1)}
+.day.muted{color:rgba(42,24,41,.25)}
+.day.today{background:var(--gnl-roxo);color:var(--gnl-marfim);font-weight:600}
+.day.has-event::after{content:"";position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--gnl-dourado)}
+.day.has-event.fatal::after{background:var(--gnl-erro)}
+
+/* Filter bar */
+.filter-bar{display:flex;gap:6px;padding:12px 18px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--border);background:var(--surface-alt)}
+.filter-bar .label{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);font-weight:600;margin-right:6px}
+.chip{font-size:.76rem;padding:4px 10px;border-radius:var(--r-pill);border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .15s ease}
+.chip:hover{border-color:var(--gnl-dourado)}
+.chip.active{background:var(--gnl-tinta);color:var(--gnl-marfim);border-color:var(--gnl-tinta)}
+.chip .x{color:rgba(240,236,232,.5);font-size:.9rem;line-height:1}
+
+/* Bars chart */
+.barchart{display:flex;align-items:flex-end;gap:20px;height:200px;padding:24px 18px 50px;position:relative}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;position:relative}
+.bar{font-size:.72rem;color:var(--text-muted);font-family:var(--f-mono)}
+.bar .col{width:100%;background:var(--gnl-roxo-claro);border-radius:4px 4px 0 0;position:relative;transition:background .15s ease}
+.bar:hover .col{background:var(--gnl-dourado)}
+.bar .col::before{content:attr(data-v);position:absolute;top:-18px;left:0;right:0;text-align:center;font-size:.68rem;color:var(--text-muted)}
+
+/* ===== FUNCIONALIDADES GRID ===== */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:26px;transition:all .15s ease;position:relative;overflow:hidden}
+.feat:hover{border-color:var(--gnl-dourado);box-shadow:var(--shadow-1);transform:translateY(-2px)}
+.feat::before{content:"";position:absolute;left:0;top:0;width:3px;height:0;background:var(--gnl-dourado);transition:height .3s ease}
+.feat:hover::before{height:100%}
+.feat .num{font-family:var(--f-mono);font-size:.68rem;color:var(--gnl-dourado);letter-spacing:.14em;margin-bottom:14px;font-weight:500}
+.feat h3{font-family:var(--f-display);font-weight:500;font-size:1.45rem;margin:0 0 8px;color:var(--text);line-height:1.15}
+.feat p{color:var(--text-muted);margin:0 0 16px;font-size:.92rem;line-height:1.55}
+.feat ul{list-style:none;padding:0;margin:0;font-size:.82rem}
+.feat ul li{padding:5px 0;color:var(--text);display:flex;align-items:flex-start;gap:8px}
+.feat ul li svg{width:14px;height:14px;color:var(--gnl-sucesso);flex-shrink:0;margin-top:3px}
+
+/* ===== SCREENSHOTS ===== */
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.shot{background:var(--gnl-roxo);border-radius:var(--r-card);padding:18px;box-shadow:var(--shadow-2);position:relative;overflow:hidden}
+.shot-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.shot-head .dots{display:flex;gap:4px}
+.shot-head .dots span{width:9px;height:9px;border-radius:50%;background:rgba(240,236,232,.25)}
+.shot-head .title{font-family:var(--f-mono);font-size:.7rem;color:rgba(240,236,232,.55);margin-left:auto}
+.shot-content{background:var(--surface);border-radius:4px;overflow:hidden;min-height:280px}
+.shot .cap{position:absolute;bottom:12px;left:18px;color:rgba(240,236,232,.65);font-family:var(--f-display);font-style:italic;font-size:.95rem}
+
+/* ===== PLANOS ===== */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px;max-width:820px;margin-left:auto;margin-right:auto}
+.plan{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:32px 28px;position:relative;display:flex;flex-direction:column;transition:all .2s ease}
+.plan:hover{border-color:var(--gnl-dourado);box-shadow:var(--shadow-2)}
+.plan.featured{background:var(--gnl-roxo);color:var(--gnl-marfim);border-color:var(--gnl-dourado);transform:scale(1.02);box-shadow:var(--shadow-elev)}
+.plan.featured .price-big,.plan.featured h3{color:var(--gnl-marfim)}
+.plan.featured .feat-list li{color:rgba(240,236,232,.85)}
+.plan.featured .feat-list li svg{color:var(--gnl-dourado)}
+.plan.featured .plan-sub{color:rgba(240,236,232,.65)}
+.plan .ribbon{position:absolute;top:18px;right:-1px;background:var(--gnl-dourado);color:var(--gnl-tinta);padding:5px 14px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border-radius:4px 0 0 4px}
+.plan .plan-name{font-size:.7rem;text-transform:uppercase;letter-spacing:.22em;color:var(--gnl-dourado);font-weight:600;margin-bottom:6px}
+.plan h3{font-family:var(--f-display);font-weight:500;font-size:2rem;margin:0 0 8px;line-height:1.1}
+.plan .plan-sub{font-family:var(--f-display);font-style:italic;color:var(--text-muted);font-size:1.05rem;margin:0 0 24px;line-height:1.3}
+.plan .price-big{font-family:var(--f-display);font-size:3.5rem;font-weight:400;line-height:1;color:var(--text);margin-bottom:4px}
+.plan .price-big .currency{font-size:1.4rem;vertical-align:top;margin-right:4px;color:var(--gnl-dourado)}
+.plan .price-note{font-size:.78rem;color:var(--text-muted);margin-bottom:6px}
+.plan .price-install{font-family:var(--f-mono);font-size:.78rem;color:var(--gnl-sucesso);margin-bottom:24px;font-weight:500}
+.plan .feat-list{list-style:none;padding:0;margin:0 0 28px;flex:1}
+.plan .feat-list li{padding:8px 0;font-size:.85rem;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(42,24,41,.06)}
+.plan.featured .feat-list li{border-bottom-color:rgba(240,236,232,.1)}
+.plan .feat-list li:last-child{border-bottom:none}
+.plan .feat-list li svg{width:14px;height:14px;color:var(--gnl-sucesso);flex-shrink:0;margin-top:3px}
+
+/* ===== COMPARATIVO ===== */
+.compare{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden}
+.compare table{width:100%;border-collapse:collapse}
+.compare th{text-align:left;padding:18px;background:var(--surface-alt);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);border-bottom:1px solid var(--border)}
+.compare th.gnl{background:var(--gnl-roxo);color:var(--gnl-marfim)}
+.compare th.gnl span{display:block;font-family:var(--f-display);font-weight:500;font-size:1.1rem;text-transform:none;letter-spacing:0;color:var(--gnl-dourado);margin-top:2px}
+.compare td{padding:16px 18px;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--text);vertical-align:middle}
+.compare td:first-child{font-weight:500}
+.compare td.gnl{background:rgba(198,158,91,.05);color:var(--gnl-roxo);font-weight:500}
+.compare tr:last-child td{border-bottom:none}
+.compare .check{color:var(--gnl-sucesso);font-weight:600}
+.compare .xmark{color:var(--gnl-erro);font-weight:600}
+.compare .partial{color:var(--gnl-alerta);font-weight:500}
+
+/* ===== FAQ ===== */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:860px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;transition:all .15s ease}
+.faq-item[open]{border-color:var(--gnl-dourado);box-shadow:var(--shadow-1)}
+.faq-item summary{padding:18px 22px;cursor:pointer;font-weight:600;color:var(--text);display:flex;justify-content:space-between;align-items:center;list-style:none;font-size:.95rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-family:var(--f-display);font-size:1.6rem;color:var(--gnl-dourado);font-weight:400;margin-left:14px;transition:transform .2s ease;line-height:1}
+.faq-item[open] summary::after{content:"−"}
+.faq-item .answer{padding:0 22px 18px;color:var(--text-muted);font-size:.9rem;line-height:1.65;max-width:780px}
+.faq-item .answer p{margin:0 0 8px}
+.faq-item .answer p:last-child{margin-bottom:0}
+
+/* ===== DEPOIMENTOS ===== */
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.voice{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:24px;position:relative}
+.voice::before{content:"\201C";position:absolute;top:10px;right:20px;font-family:var(--f-display);font-size:5rem;color:var(--gnl-dourado);opacity:.2;line-height:1}
+.voice p{font-family:var(--f-display);font-style:italic;font-size:1.15rem;line-height:1.4;color:var(--text);margin:0 0 20px;position:relative;z-index:2}
+.voice .who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding-top:16px}
+.voice .av{width:36px;height:36px;border-radius:50%;background:var(--gnl-roxo);color:var(--gnl-marfim);display:grid;place-items:center;font-family:var(--f-display);font-size:1rem;flex-shrink:0}
+.voice .info .n{font-weight:600;font-size:.88rem;color:var(--text)}
+.voice .info .r{font-size:.74rem;color:var(--text-muted);font-family:var(--f-mono)}
+
+/* Placeholder (acesso antecipado, sem depoimentos falsos) */
+.voices-placeholder{position:relative;background:var(--surface);border:1px dashed var(--border-strong);border-radius:var(--r-card);padding:72px 40px;text-align:center;max-width:820px;margin:0 auto;overflow:hidden}
+.voices-placeholder::before,.voices-placeholder::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(198,158,91,.15),transparent 70%);pointer-events:none}
+.voices-placeholder::before{top:-60px;left:-40px}
+.voices-placeholder::after{bottom:-60px;right:-40px}
+.voices-placeholder .quote-mark{width:48px;height:48px;color:var(--gnl-dourado);opacity:.6;margin:0 auto 18px;display:block;position:relative;z-index:2}
+.voices-placeholder .placeholder-text{font-family:var(--f-display);font-style:italic;font-size:1.6rem;line-height:1.35;color:var(--text);margin:0 0 28px;position:relative;z-index:2;max-width:640px;margin-left:auto;margin-right:auto}
+.voices-placeholder .placeholder-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;position:relative;z-index:2}
+.voices-placeholder .pill-badge{font-family:var(--f-mono);font-size:.72rem;padding:6px 14px;border-radius:100px;background:var(--surface-alt);border:1px solid var(--border);color:var(--text-muted);letter-spacing:.02em}
+@media(max-width:640px){
+  .voices-placeholder{padding:48px 24px}
+  .voices-placeholder .placeholder-text{font-size:1.25rem}
+}
+
+/* ===== FORMULÁRIO ===== */
+.form-wrap{background:var(--gnl-roxo);border-radius:var(--r-card);padding:60px;color:var(--gnl-marfim);position:relative;overflow:hidden;box-shadow:var(--shadow-elev);display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:flex-start}
+.form-wrap::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gnl-dourado),transparent)}
+.form-side{position:relative;z-index:2}
+.form-side .h4{color:var(--gnl-dourado);margin-bottom:16px}
+.form-side h2{font-family:var(--f-display);font-weight:400;font-size:2.6rem;line-height:1.08;margin:0 0 16px;color:var(--gnl-marfim)}
+.form-side p{color:rgba(240,236,232,.75);margin:0 0 24px;font-size:1rem;line-height:1.6}
+.form-side .steps{display:flex;flex-direction:column;gap:16px;margin-top:28px;padding-top:28px;border-top:1px solid rgba(240,236,232,.14)}
+.form-side .step{display:flex;gap:14px;align-items:flex-start}
+.form-side .step-num{width:28px;height:28px;border-radius:50%;background:var(--gnl-dourado);color:var(--gnl-tinta);display:grid;place-items:center;font-family:var(--f-display);font-weight:600;font-size:.95rem;flex-shrink:0}
+.form-side .step-text .t{font-weight:600;margin-bottom:2px;font-size:.88rem}
+.form-side .step-text .d{font-size:.78rem;color:rgba(240,236,232,.6);line-height:1.5}
+
+.form-card{background:var(--gnl-marfim);color:var(--gnl-tinta);border-radius:var(--r-card);padding:36px;position:relative;z-index:2;box-shadow:0 30px 80px -10px rgba(0,0,0,.5)}
+.form-card::before{content:"";position:absolute;left:0;top:36px;bottom:36px;width:3px;background:var(--gnl-dourado)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:block;margin-bottom:18px}
+.field.full{grid-column:1 / -1}
+.field label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gnl-tinta);margin-bottom:8px}
+.field label .req{color:var(--gnl-erro);margin-left:3px}
+.field input, .field select, .field textarea{
+  width:100%;font-family:var(--f-text);font-size:.92rem;
+  background:transparent;color:var(--gnl-tinta);
+  border:none;border-bottom:1px solid rgba(42,24,41,.25);
+  padding:9px 0;outline:none;transition:border-color .15s ease;
+  border-radius:0;
+}
+.field input:focus, .field select:focus, .field textarea:focus{border-bottom-color:var(--gnl-dourado)}
+.field input::placeholder, .field textarea::placeholder{color:rgba(42,24,41,.35)}
+.field textarea{resize:vertical;min-height:72px;font-family:var(--f-text)}
+.field select{appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23332030' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 2px center;padding-right:24px;cursor:pointer}
+
+.plan-radios{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:18px}
+.plan-radio{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid rgba(42,24,41,.2);border-radius:var(--r-card);cursor:pointer;transition:all .15s ease;background:white}
+.plan-radio:hover{border-color:var(--gnl-dourado)}
+.plan-radio input{margin:0;accent-color:var(--gnl-dourado)}
+.plan-radio .info{flex:1}
+.plan-radio .info .n{font-weight:600;font-size:.88rem;color:var(--gnl-tinta)}
+.plan-radio .info .d{font-size:.74rem;color:var(--gnl-fumaca);margin-top:2px}
+.plan-radio .price{font-family:var(--f-display);font-size:1.3rem;color:var(--gnl-roxo);font-weight:500}
+.plan-radio input:checked ~ .info .n{color:var(--gnl-roxo)}
+.plan-radio:has(input:checked){border-color:var(--gnl-dourado);background:rgba(198,158,91,.06)}
+
+.form-foot{margin-top:24px;padding-top:20px;border-top:1px solid rgba(42,24,41,.1)}
+.checkbox-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:16px;font-size:.8rem;line-height:1.4;color:var(--gnl-fumaca)}
+.checkbox-row input{margin-top:3px;accent-color:var(--gnl-dourado);flex-shrink:0}
+.checkbox-row a{color:var(--gnl-dourado);text-decoration:underline;text-underline-offset:2px}
+
+.form-hp{position:absolute;left:-9999px;top:-9999px}
+
+.success-msg{display:none;background:rgba(58,125,68,.08);border:1px solid rgba(58,125,68,.3);border-radius:var(--r-card);padding:24px;text-align:center;color:var(--gnl-tinta)}
+.success-msg.show{display:block}
+.success-msg h3{font-family:var(--f-display);font-weight:500;font-size:1.6rem;margin:0 0 8px;color:var(--gnl-sucesso)}
+.success-msg p{margin:0;color:var(--gnl-fumaca);font-size:.9rem}
+
+/* ===== FOOTER ===== */
+.footer{margin-top:96px;padding:40px 0 20px;border-top:1px solid var(--gnl-dourado)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+.footer-brand{display:flex;align-items:center;gap:18px}
+.footer-brand .mark{width:72px;height:72px;border-radius:50%;background:var(--gnl-roxo);display:grid;place-items:center;overflow:hidden;border:1px solid rgba(198,158,91,.3)}
+.footer-brand .mark svg{width:82%;height:82%}
+.footer-brand .txt{font-family:var(--f-display);font-size:1.9rem;color:var(--text);line-height:1.1}
+.footer-brand .txt em{font-style:italic;color:var(--gnl-dourado);font-size:.85rem;font-family:var(--f-display);letter-spacing:.02em;margin-left:6px}
+.footer-brand .tagline{font-family:var(--f-display);font-style:italic;color:var(--text-muted);font-size:1.05rem;margin-top:4px}
+.footer-col h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted);font-weight:700;margin:0 0 12px}
+.footer-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.footer-col a{text-decoration:none;color:var(--text);font-size:.88rem;transition:color .15s ease}
+.footer-col a:hover{color:var(--gnl-dourado)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:20px;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-muted);font-family:var(--f-mono)}
+
+/* ===== TOAST ===== */
+.toast-live{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:flex-start;gap:11px;background:var(--gnl-roxo-profundo);color:var(--gnl-marfim);padding:14px 16px;border-radius:var(--r-card);border-left:3px solid var(--gnl-sucesso);box-shadow:var(--shadow-elev);max-width:380px;transform:translateY(16px);opacity:0;pointer-events:none;transition:all .3s ease}
+.toast-live.show{transform:none;opacity:1;pointer-events:auto}
+.toast-live .ic{color:var(--gnl-sucesso);width:16px;height:16px;flex-shrink:0;margin-top:2px}
+.toast-live .body{flex:1;font-size:.85rem}
+.toast-live .title{font-weight:600;margin-bottom:2px}
+.toast-live .desc{color:rgba(240,236,232,.7);font-size:.76rem}
+.toast-live .x{margin-left:8px;color:rgba(240,236,232,.5);cursor:pointer;background:transparent;border:none}
+.toast-live .x svg{width:14px;height:14px}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1080px){
+  main{padding:32px 20px 60px}
+  .hero{grid-template-columns:1fr;padding:50px 32px;gap:40px;min-height:auto}
+  .hero-preview-card{transform:none}
+  .float-pill{display:none}
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .features,.voices,.plans{grid-template-columns:1fr}
+  .plans .plan.featured{transform:none}
+  .grid-2{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .shots{grid-template-columns:1fr}
+  .form-wrap{grid-template-columns:1fr;padding:36px 28px;gap:40px}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .topnav .lk{display:none}
+  .topnav .lk.show-mobile{display:inline-block}
+  .demo-body{padding:16px}
+  .compare{overflow-x:auto}
+}
+
+@media (max-width: 640px){
+  .footer-grid{grid-template-columns:1fr}
+  .brand-strip .right{display:none}
+  .hero-content h1{font-size:2.4rem}
+  .pillars{grid-template-columns:1fr}
+  .demo-tabs{padding:8px 4px 0}
+  .demo-tab{padding:8px 10px;font-size:.75rem}
+  .demo-tab svg{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== ICONES ===================== -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true">
+  <defs>
+    <symbol id="ic-home"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="ic-users"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="ic-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="ic-cal"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="ic-money"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+    <symbol id="ic-doc"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
+    <symbol id="ic-cog"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="ic-bell"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="ic-plus"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+    <symbol id="ic-alert"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="ic-check"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="ic-info"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+    <symbol id="ic-arrow"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="ic-up"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></symbol>
+    <symbol id="ic-down"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="ic-edit"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4z"/></symbol>
+    <symbol id="ic-trash"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></symbol>
+    <symbol id="ic-export" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="ic-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></symbol>
+    <symbol id="ic-x"      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="ic-more"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol>
+    <symbol id="ic-mail"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="ic-phone"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="ic-lock"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="ic-offline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></symbol>
+    <symbol id="ic-award"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+    <symbol id="ic-zap"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="ic-db"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></symbol>
+    <symbol id="ic-link"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===================== TOPO ===================== -->
+<div class="brand-strip">
+  <span>Brandbook v2 · Abril 2026</span>
+  <span class="dot"></span>
+  <span>Do grão ao sistema</span>
+  <span class="dot"></span>
+  <span>Pagamento único · licença vitalícia</span>
+  <div class="right">
+    <span>v 2.0.0</span>
+    <button class="theme-toggle" id="themeBtn">Tema · Claro</button>
+  </div>
+</div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="#topo" class="brandmark">
+      <span class="m">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#F0ECE8"/>
+          <ellipse cx="50" cy="50" rx="18" ry="28" fill="none" stroke="#332030" stroke-width="2"/>
+          <text x="50" y="62" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="40" font-weight="500" font-style="italic" fill="#332030">g</text>
+          <circle cx="50" cy="18" r="1.8" fill="#C69E5B"/>
+          <circle cx="50" cy="82" r="1.8" fill="#C69E5B"/>
+        </svg>
+      </span>
+      <span class="txt">granola<span>CRM</span></span>
+    </a>
+    <a href="#por-que" class="lk">Por quê</a>
+    <a href="#demo" class="lk">Demonstração</a>
+    <a href="#funcionalidades" class="lk">Funcionalidades</a>
+    <a href="#planos" class="lk">Planos</a>
+    <a href="#faq" class="lk">FAQ</a>
+    <div class="spc"></div>
+    <div class="cta">
+      <a href="#cadastro" class="btn btn-primary btn-sm show-mobile">Comprar acesso</a>
+    </div>
+  </div>
+</nav>
+
+<main id="topo">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="section" style="margin-top:40px">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">CRM para advogados · Pagamento único</div>
+        <h1>Do grão<br/>ao <em>sistema.</em></h1>
+        <p class="tagline">O CRM jurídico que não aluga seus dados. Instala no seu computador, funciona offline, e a licença é sua — para sempre.</p>
+        <div class="cta-row">
+          <a href="#cadastro" class="btn btn-primary btn-lg">
+            Comprar acesso vitalício
+            <svg width="14" height="14"><use href="#ic-arrow"/></svg>
+          </a>
+          <a href="#demo" class="btn btn-ghost btn-lg">Ver demonstração ao vivo</a>
+        </div>
+        <div class="badges">
+          <span class="badge"><svg><use href="#ic-check"/></svg>Sem mensalidade</span>
+          <span class="badge"><svg><use href="#ic-check"/></svg>Dados no seu computador</span>
+          <span class="badge"><svg><use href="#ic-check"/></svg>Funciona offline</span>
+          <span class="badge"><svg><use href="#ic-check"/></svg>Atualizações até 2036</span>
+        </div>
+      </div>
+      <div class="hero-preview">
+        <div class="float-pill tl">
+          <svg><use href="#ic-check"/></svg>
+          <span>Prazo fatal sinalizado</span>
+        </div>
+        <div class="float-pill br">
+          <svg><use href="#ic-shield"/></svg>
+          <span>Backup local · 22h14</span>
+        </div>
+        <div class="hero-preview-card">
+          <div class="mini-head">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="lbl">granola · agora</span>
+          </div>
+          <div class="mini-kpis">
+            <div class="mini-kpi accent"><div class="l">Prazos esta semana</div><div class="v">12</div></div>
+            <div class="mini-kpi"><div class="l">Processos ativos</div><div class="v">147</div></div>
+            <div class="mini-kpi"><div class="l">Clientes</div><div class="v">38</div></div>
+            <div class="mini-kpi"><div class="l">A receber · 30 d</div><div class="v">R$ 48K</div></div>
+          </div>
+          <div class="mini-table">
+            <div class="hdr"><div>Processo</div><div>Cliente</div><div>Status</div></div>
+            <div class="row"><div><strong>Contestação Trab.</strong></div><div>Maria Silva ME</div><div class="fatal">• Fatal 1d</div></div>
+            <div class="row"><div><strong>Recurso ordinário</strong></div><div>Construtora Ed.</div><div class="fatal">• Fatal 2d</div></div>
+            <div class="row"><div><strong>Réplica</strong></div><div>Ana C. Lopes</div><div style="color:var(--gnl-alerta);font-weight:500;font-size:.68rem">• Alerta 4d</div></div>
+            <div class="row"><div><strong>Memorial</strong></div><div>Roberta Mendes</div><div class="ok">• No prazo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POR QUÊ GRANOLA ===================== -->
+  <section class="section" id="por-que">
+    <div class="section-head">
+      <div class="h4">Capítulo 1 · Promessa</div>
+      <h2>Quatro coisas que nenhum outro CRM jurídico oferece juntas.</h2>
+      <p>Granola foi desenhado por quem advoga, não por quem só cobra mensalidade. Cada decisão do produto parte de uma pergunta antiga: <em>de quem são esses dados?</em></p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="ic"><svg><use href="#ic-award"/></svg></div>
+        <h3>Pagamento único</h3>
+        <p>Você paga uma vez e usa para sempre. Sem assinatura, sem cancelamento, sem pegadinha.</p>
+        <span class="tag">Posse vitalícia</span>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg><use href="#ic-db"/></svg></div>
+        <h3>Dados no seu computador</h3>
+        <p>Banco de dados SQLite criptografado, armazenado localmente. Nenhum servidor de terceiro.</p>
+        <span class="tag">Soberania · LGPD</span>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg><use href="#ic-offline"/></svg></div>
+        <h3>Funciona offline</h3>
+        <p>Internet opcional. Sincroniza DataJud, PJe e e-SAJ quando há conexão — e segue funcionando quando não há.</p>
+        <span class="tag">Independente</span>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg><use href="#ic-shield"/></svg></div>
+        <h3>Feito por quem advoga</h3>
+        <p>Não é SaaS genérico com verniz jurídico. Cada tela nasceu no expediente forense — prazos, peticionamento, honorários.</p>
+        <span class="tag">OAB/SP 372.868</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DEMO INTERATIVA ===================== -->
+  <section class="section" id="demo">
+    <div class="section-head">
+      <div class="h4">Capítulo 11 · Arquitetura de telas</div>
+      <h2>Navegue pelo sistema aqui mesmo.</h2>
+      <p>As sete telas abaixo são o produto inteiro. Clique em cada aba para alternar — tabelas, filtros, calendário e gráficos são <strong>reais e interativos</strong>, renderizados com os mesmos componentes do Granola instalado.</p>
+    </div>
+
+    <div class="demo-wrap">
+      <div class="demo-tabs" role="tablist">
+        <button class="demo-tab active" data-panel="agora"><svg><use href="#ic-home"/></svg>Agora</button>
+        <button class="demo-tab" data-panel="clientes"><svg><use href="#ic-users"/></svg>Clientes</button>
+        <button class="demo-tab" data-panel="processos"><svg><use href="#ic-folder"/></svg>Processos</button>
+        <button class="demo-tab" data-panel="agenda"><svg><use href="#ic-cal"/></svg>Agenda</button>
+        <button class="demo-tab" data-panel="financeiro"><svg><use href="#ic-money"/></svg>Financeiro</button>
+        <button class="demo-tab" data-panel="modelos"><svg><use href="#ic-doc"/></svg>Modelos</button>
+        <button class="demo-tab" data-panel="config"><svg><use href="#ic-cog"/></svg>Configurações</button>
+      </div>
+      <div class="demo-body">
+
+        <!-- AGORA -->
+        <div class="demo-panel active" data-panel="agora">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap">
+            <div>
+              <h2 style="font-family:var(--f-display);font-weight:400;font-size:1.8rem;margin:0;line-height:1.1">Boa tarde, <em style="font-style:italic;color:var(--gnl-dourado)">Dr. Claudio.</em></h2>
+              <p style="font-family:var(--f-display);font-style:italic;color:var(--text-muted);margin:4px 0 0;font-size:.95rem">Terça-feira, 21 de abril · sete itens pedem atenção hoje.</p>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-ghost btn-sm" onclick="showToast('Exportação iniciada','Arquivo em PDF · 28 páginas')"><svg width="12" height="12"><use href="#ic-export"/></svg>Exportar</button>
+              <button class="btn btn-primary btn-sm" onclick="switchPanel('clientes')"><svg width="12" height="12"><use href="#ic-plus"/></svg>Adicionar cliente</button>
+            </div>
+          </div>
+          <div class="kpis">
+            <div class="kpi accent"><div class="label">Prazos esta semana</div><div class="value">12</div><div class="delta down"><svg><use href="#ic-up"/></svg>+3 vs. semana passada</div></div>
+            <div class="kpi"><div class="label">Processos ativos</div><div class="value">147</div><div class="delta flat">sem variação</div></div>
+            <div class="kpi"><div class="label">Clientes</div><div class="value">38</div><div class="delta"><svg><use href="#ic-up"/></svg>+2 no mês</div></div>
+            <div class="kpi"><div class="label">A receber · 30 d</div><div class="value">R$ 48.250</div><div class="delta"><svg><use href="#ic-up"/></svg>+R$ 6.400</div></div>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head"><h3>Próximos prazos</h3>
+                <div class="h-actions">
+                  <button class="btn btn-ghost btn-sm" onclick="showToast('Filtro aplicado','Exibindo 5 prazos · próximos 7 dias')"><svg width="12" height="12"><use href="#ic-filter"/></svg>Filtrar</button>
+                </div>
+              </div>
+              <div class="filter-bar">
+                <span class="label">Filtros</span>
+                <span class="chip active">Todos os tribunais <span class="x">×</span></span>
+                <span class="chip">Fatal <span class="x">×</span></span>
+                <span class="chip">7 dias <span class="x">×</span></span>
+              </div>
+              <table class="table">
+                <thead><tr><th>Processo</th><th>Cliente</th><th>Tipo</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr onclick="switchPanel('processos')"><td><div class="name">Contestação Trab.</div><span class="cnj">1005826-83.2023.5.02.0001</span></td><td>Maria Silva ME</td><td>Trabalhista</td><td><span class="tag tag-fatal"><span class="dot"></span>Fatal · 1d</span></td></tr>
+                  <tr onclick="switchPanel('processos')"><td><div class="name">Recurso ordinário</div><span class="cnj">0008237-65.2024.8.26.0100</span></td><td>Construtora Edif.</td><td>Cível</td><td><span class="tag tag-fatal"><span class="dot"></span>Fatal · 2d</span></td></tr>
+                  <tr onclick="switchPanel('processos')"><td><div class="name">Réplica</div><span class="cnj">5004488-12.2024.4.03.6109</span></td><td>Ana Carolina Lopes</td><td>Federal</td><td><span class="tag tag-alerta"><span class="dot"></span>Alerta · 4d</span></td></tr>
+                  <tr onclick="switchPanel('agenda')"><td><div class="name">Audiência conciliação</div><span class="cnj">0011298-04.2025.8.26.0224</span></td><td>Eduardo Marques</td><td>Cível</td><td><span class="tag tag-neutro"><span class="dot"></span>Sugerido · 7d</span></td></tr>
+                  <tr onclick="switchPanel('processos')"><td><div class="name">Memorial</div><span class="cnj">1001225-77.2024.5.02.0044</span></td><td>Roberta Mendes</td><td>Trabalhista</td><td><span class="tag tag-ok"><span class="dot"></span>No prazo</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card">
+              <div class="card-head"><h3>Alertas</h3><div class="h-actions"><span class="micro">5 ativos</span></div></div>
+              <div class="alerts">
+                <div class="alert urgent"><span class="ic"><svg><use href="#ic-alert"/></svg></span><div class="body"><div class="title">Prazo fatal em menos de 24 horas</div><div class="desc">Contestação — 1005826-83.2023.5.02.0001</div></div></div>
+                <div class="alert warn"><span class="ic"><svg><use href="#ic-alert"/></svg></span><div class="body"><div class="title">Sincronização DataJud pendente</div><div class="desc">7 movimentações novas detectadas.</div></div></div>
+                <div class="alert info"><span class="ic"><svg><use href="#ic-info"/></svg></span><div class="body"><div class="title">Backup local concluído</div><div class="desc">22h14 · 38 MB · sem erros.</div></div></div>
+                <div class="alert ok"><span class="ic"><svg><use href="#ic-check"/></svg></span><div class="body"><div class="title">Licença ativa</div><div class="desc">Pagamento único · sem renovação.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLIENTES -->
+        <div class="demo-panel" data-panel="clientes">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap">
+            <div>
+              <h2 style="font-family:var(--f-display);font-weight:400;font-size:1.8rem;margin:0;line-height:1.1">Clientes</h2>
+              <p style="font-family:var(--f-display);font-style:italic;color:var(--text-muted);margin:4px 0 0;font-size:.95rem">38 ativos · 5 inativos · 2 prospecções no mês.</p>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-ghost btn-sm" onclick="showToast('CSV exportado','38 registros · 4,2 KB')"><svg width="12" height="12"><use href="#ic-export"/></svg>Exportar CSV</button>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Cliente cadastrado','Nome temporário · edite no detalhamento')"><svg width="12" height="12"><use href="#ic-plus"/></svg>Adicionar cliente</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <h3>Todos os clientes</h3>
+              <div class="h-actions">
+                <div style="display:flex;align-items:center;gap:8px;background:var(--surface-alt);border:1px solid var(--border);padding:5px 12px;border-radius:var(--r-pill);width:220px;color:var(--text-muted)">
+                  <svg width="13" height="13"><use href="#ic-search"/></svg>
+                  <input placeholder="Buscar cliente…" style="flex:1;border:none;outline:none;background:transparent;font-size:.82rem;color:var(--text)"/>
+                </div>
+              </div>
+            </div>
+            <div class="filter-bar">
+              <span class="label">Filtros</span>
+              <span class="chip active">Ativos <span class="x">×</span></span>
+              <span class="chip">PJ</span>
+              <span class="chip">PF</span>
+              <span class="chip">Premium</span>
+            </div>
+            <table class="table">
+              <thead><tr><th>Cliente</th><th>Documento</th><th>Processos</th><th class="num">Honorários (12m)</th><th>Última interação</th></tr></thead>
+              <tbody>
+                <tr><td><div class="name">Maria Silva ME</div><span class="secondary">contato@mariasilva.adv.br</span></td><td><span class="tech">12.345.678/0001-90</span></td><td>7</td><td class="num">R$ 64.200,00</td><td>21/04 · Reunião</td></tr>
+                <tr><td><div class="name">Construtora Edificar</div><span class="secondary">juridico@edificar.com.br</span></td><td><span class="tech">98.765.432/0001-10</span></td><td>4</td><td class="num">R$ 48.500,00</td><td>19/04 · E-mail</td></tr>
+                <tr><td><div class="name">Ana Carolina Lopes</div><span class="secondary">anaclopes@gmail.com</span></td><td><span class="tech">123.456.789-00</span></td><td>2</td><td class="num">R$ 12.800,00</td><td>18/04 · Telefone</td></tr>
+                <tr><td><div class="name">Eduardo Marques</div><span class="secondary">eduardo@marques.com</span></td><td><span class="tech">987.654.321-00</span></td><td>3</td><td class="num">R$ 28.400,00</td><td>16/04 · Reunião</td></tr>
+                <tr><td><div class="name">Roberta Mendes</div><span class="secondary">rmendes@outlook.com</span></td><td><span class="tech">456.789.123-00</span></td><td>1</td><td class="num">R$ 8.200,00</td><td>14/04 · WhatsApp</td></tr>
+                <tr><td><div class="name">José Almeida</div><span class="secondary">jose.almeida@yahoo.com</span></td><td><span class="tech">234.567.890-00</span></td><td>2</td><td class="num">R$ 13.600,00</td><td>10/04 · E-mail</td></tr>
+                <tr><td><div class="name">Carla Pereira</div><span class="secondary">carla@pereira.adv.br</span></td><td><span class="tech">345.678.901-00</span></td><td>1</td><td class="num">R$ 4.500,00</td><td>08/04 · Reunião</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PROCESSOS -->
+        <div class="demo-panel" data-panel="processos">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap">
+            <div>
+              <h2 style="font-family:var(--f-display);font-weight:400;font-size:1.8rem;margin:0;line-height:1.1">Processos</h2>
+              <p style="font-family:var(--f-display);font-style:italic;color:var(--text-muted);margin:4px 0 0;font-size:.95rem">147 ativos · 22 sentenciados · sincronização DataJud automática.</p>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-ghost btn-sm" onclick="showToast('Sincronização iniciada','DataJud · 42 processos em 5s')"><svg width="12" height="12"><use href="#ic-link"/></svg>Sincronizar DataJud</button>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Processo vinculado','Aguardando primeira sincronização')"><svg width="12" height="12"><use href="#ic-plus"/></svg>Novo processo</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Todos os processos</h3><span class="micro">147 resultados</span></div>
+            <div class="filter-bar">
+              <span class="label">Filtros</span>
+              <span class="chip active">Trabalhista <span class="x">×</span></span>
+              <span class="chip active">TRT-2 <span class="x">×</span></span>
+              <span class="chip">Em curso</span>
+              <span class="chip">Sentenciados</span>
+            </div>
+            <table class="table">
+              <thead><tr><th>CNJ</th><th>Cliente</th><th>Vara</th><th>Última movimentação</th><th class="num">Honorários</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><span class="cnj">1005826-83.2023.5.02.0001</span></td><td>Maria Silva ME</td><td>1ª VT São Paulo</td><td>21/04 · Decisão<span class="secondary">11:38</span></td><td class="num">R$ 12.500,00</td><td><span class="tag tag-fatal"><span class="dot"></span>Prazo fatal</span></td></tr>
+                <tr><td><span class="cnj">1001225-77.2024.5.02.0044</span></td><td>Roberta Mendes</td><td>44ª VT São Paulo</td><td>19/04 · Despacho</td><td class="num">R$ 8.200,00</td><td><span class="tag tag-ok"><span class="dot"></span>Em curso</span></td></tr>
+                <tr><td><span class="cnj">1003344-09.2024.5.02.0017</span></td><td>José Almeida</td><td>17ª VT São Paulo</td><td>18/04 · Audiência designada</td><td class="num">R$ 6.800,00</td><td><span class="tag tag-alerta"><span class="dot"></span>Audiência 03/05</span></td></tr>
+                <tr><td><span class="cnj">1009987-22.2025.5.02.0056</span></td><td>Carla Pereira</td><td>56ª VT São Paulo</td><td>15/04 · Petição inicial</td><td class="num">R$ 4.500,00</td><td><span class="tag tag-neutro"><span class="dot"></span>Distribuído</span></td></tr>
+                <tr><td><span class="cnj">1002211-66.2023.5.02.0003</span></td><td>Lucas Tavares</td><td>3ª VT São Paulo</td><td>12/04 · Sentença</td><td class="num">R$ 18.300,00</td><td><span class="tag tag-dourado"><span class="dot"></span>Sentenciado</span></td></tr>
+                <tr><td><span class="cnj">0008237-65.2024.8.26.0100</span></td><td>Construtora Edif.</td><td>TJSP · 10ª Cível</td><td>10/04 · Contrarrazões</td><td class="num">R$ 22.400,00</td><td><span class="tag tag-fatal"><span class="dot"></span>Prazo fatal</span></td></tr>
+                <tr><td><span class="cnj">5004488-12.2024.4.03.6109</span></td><td>Ana Carolina Lopes</td><td>TRF3 · 1ª Vara</td><td>09/04 · Contestação</td><td class="num">R$ 9.800,00</td><td><span class="tag tag-alerta"><span class="dot"></span>Alerta</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- AGENDA -->
+        <div class="demo-panel" data-panel="agenda">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap">
+            <div>
+              <h2 style="font-family:var(--f-display);font-weight:400;font-size:1.8rem;margin:0;line-height:1.1">Agenda</h2>
+              <p style="font-family:var(--f-display);font-style:italic;color:var(--text-muted);margin:4px 0 0;font-size:.95rem">Próximos sete dias · 4 prazos · 2 audiências · 1 reunião.</p>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-primary btn-sm" onclick="showToast('Evento criado','Adicionado à agenda · lembrete 24h antes')"><svg width="12" height="12"><use href="#ic-plus"/></svg>Novo evento</button>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head"><h3>Abril 2026</h3></div>
+              <div style="padding:0">
+                <div class="cal-grid">
+                  <div class="dow">D</div><div class="dow">S</div><div class="dow">T</div><div class="dow">Q</div><div class="dow">Q</div><div class="dow">S</div><div class="dow">S</div>
+                  <div class="day muted">29</div><div class="day muted">30</div><div class="day muted">31</div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+                  <div class="day">5</div><div class="day has-event">6</div><div class="day">7</div><div class="day">8</div><div class="day has-event">9</div><div class="day">10</div><div class="day">11</div>
+                  <div class="day">12</div><div class="day has-event">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day has-event fatal">17</div><div class="day">18</div>
+                  <div class="day">19</div><div class="day">20</div><div class="day today has-event">21</div><div class="day has-event fatal">22</div><div class="day has-event fatal">23</div><div class="day">24</div><div class="day has-event">25</div>
+                  <div class="day">26</div><div class="day">27</div><div class="day has-event">28</div><div class="day">29</div><div class="day has-event">30</div><div class="day muted">1</div><div class="day muted">2</div>
+                </div>
+                <div style="display:flex;gap:14px;padding:0 18px 18px;font-size:.7rem;color:var(--text-muted)">
+                  <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:var(--gnl-dourado)"></span>Compromisso</span>
+                  <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:var(--gnl-erro)"></span>Prazo fatal</span>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-head"><h3>Esta semana · 21 a 27/04</h3><div class="h-actions"><span class="tag tag-fatal"><span class="dot"></span>3 fatais</span></div></div>
+              <div>
+                <div style="display:grid;grid-template-columns:100px 1fr auto;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border);align-items:center">
+                  <div style="font-family:var(--f-mono);font-size:.72rem;color:var(--text-muted)">22/04 · ter<br/><strong style="color:var(--gnl-erro)">17:00</strong></div>
+                  <div style="font-size:.84rem"><strong>Prazo · Contestação trabalhista</strong><div style="color:var(--text-muted);font-size:.74rem;margin-top:2px">Maria Silva ME · <span class="tech">1005826-83.2023.5.02.0001</span></div></div>
+                  <span class="tag tag-fatal"><span class="dot"></span>Fatal</span>
+                </div>
+                <div style="display:grid;grid-template-columns:100px 1fr auto;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border);align-items:center">
+                  <div style="font-family:var(--f-mono);font-size:.72rem;color:var(--text-muted)">23/04 · qua<br/><strong style="color:var(--gnl-erro)">18:00</strong></div>
+                  <div style="font-size:.84rem"><strong>Prazo · Recurso ordinário</strong><div style="color:var(--text-muted);font-size:.74rem;margin-top:2px">Construtora Edif. · <span class="tech">0008237-65.2024.8.26.0100</span></div></div>
+                  <span class="tag tag-fatal"><span class="dot"></span>Fatal</span>
+                </div>
+                <div style="display:grid;grid-template-columns:100px 1fr auto;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border);align-items:center">
+                  <div style="font-family:var(--f-mono);font-size:.72rem;color:var(--text-muted)">25/04 · sex<br/><strong>12:00</strong></div>
+                  <div style="font-size:.84rem"><strong>Prazo · Réplica</strong><div style="color:var(--text-muted);font-size:.74rem;margin-top:2px">Ana Carolina Lopes · <span class="tech">5004488-12.2024.4.03.6109</span></div></div>
+                  <span class="tag tag-alerta"><span class="dot"></span>Alerta</span>
+                </div>
+                <div style="display:grid;grid-template-columns:100px 1fr auto;gap:12px;padding:12px 18px;align-items:center">
+                  <div style="font-family:var(--f-mono);font-size:.72rem;color:var(--text-muted)">25/04 · sex<br/><strong>15:30</strong></div>
+                  <div style="font-size:.84rem"><strong>Audiência · Instrução virtual</strong><div style="color:var(--text-muted);font-size:.74rem;margin-top:2px">José Almeida · 17ª VT SP</div></div>
+                  <span class="tag tag-neutro"><span class="dot"></span>Audiência</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FINANCEIRO -->
+        <div class="demo-panel" data-panel="financeiro">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap">
+            <div>
+              <h2 style="font-family:var(--f-display);font-weight:400;font-size:1.8rem;margin:0;line-height:1.1">Financeiro</h2>
+              <p style="font-family:var(--f-display);font-style:italic;color:var(--text-muted);margin:4px 0 0;font-size:.95rem">Honorários, recebimentos, despesas. <em>Pagamento único, posse vitalícia.</em></p>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-ghost btn-sm" onclick="showToast('PDF exportado','Relatório · 12 páginas · R$ 48.250')"><svg width="12" height="12"><use href="#ic-export"/></svg>Exportar PDF</button>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Lançamento criado','Honorário contratual registrado')"><svg width="12" height="12"><use href="#ic-plus"/></svg>Lançar honorário</button>
+            </div>
+          </div>
+          <div class="kpis">
+            <div class="kpi accent"><div class="label">Receita 30 d</div><div class="value">R$ 48.250</div><div class="delta"><svg><use href="#ic-up"/></svg>+15% vs. mês ant.</div></div>
+            <div class="kpi"><div class="label">A receber</div><div class="value">R$ 27.400</div><div class="delta flat">3 contratos pendentes</div></div>
+            <div class="kpi"><div class="label">Despesas 30 d</div><div class="value">R$ 4.180</div><div class="delta down"><svg><use href="#ic-down"/></svg>−R$ 320</div></div>
+            <div class="kpi"><div class="label">Ticket médio</div><div class="value">R$ 6.890</div><div class="delta"><svg><use href="#ic-up"/></svg>+R$ 410</div></div>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head"><h3>Receita mensal · 2026</h3></div>
+              <div class="barchart">
+                <div class="bar"><div class="col" style="height:48%" data-v="22k"></div>jan</div>
+                <div class="bar"><div class="col" style="height:62%" data-v="28k"></div>fev</div>
+                <div class="bar"><div class="col" style="height:55%" data-v="25k"></div>mar</div>
+                <div class="bar"><div class="col" style="height:88%;background:var(--gnl-dourado)" data-v="48k"></div>abr</div>
+                <div class="bar"><div class="col" style="height:18%;background:var(--gnl-fumaca);opacity:.5" data-v="—"></div>mai</div>
+                <div class="bar"><div class="col" style="height:18%;background:var(--gnl-fumaca);opacity:.5" data-v="—"></div>jun</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-head"><h3>Composição da receita</h3></div>
+              <div class="card-body padded">
+                <div style="margin-bottom:14px">
+                  <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:4px"><span>Contratual</span><span class="tech">R$ 28.500 · 59%</span></div>
+                  <div style="height:6px;background:var(--surface-alt);border-radius:3px;overflow:hidden"><div style="width:59%;height:100%;background:var(--gnl-dourado)"></div></div>
+                </div>
+                <div style="margin-bottom:14px">
+                  <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:4px"><span>Sucumbencial</span><span class="tech">R$ 12.500 · 26%</span></div>
+                  <div style="height:6px;background:var(--surface-alt);border-radius:3px;overflow:hidden"><div style="width:26%;height:100%;background:var(--gnl-roxo-claro)"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:4px"><span>Êxito</span><span class="tech">R$ 7.250 · 15%</span></div>
+                  <div style="height:6px;background:var(--surface-alt);border-radius:3px;overflow:hidden"><div style="width:15%;height:100%;background:var(--gnl-fumaca)"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="margin-top:18px">
+            <div class="card-head"><h3>Lançamentos · últimos 30 dias</h3></div>
+            <table class="table">
+              <thead><tr><th>Data</th><th>Cliente</th><th>Tipo</th><th class="num">Valor</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><span class="tech">18/04</span></td><td>Maria Silva ME</td><td>Contratual</td><td class="num">R$ 12.500,00</td><td><span class="tag tag-ok"><span class="dot"></span>Pago</span></td></tr>
+                <tr><td><span class="tech">15/04</span></td><td>Construtora Edif.</td><td>Contratual</td><td class="num">R$ 6.500,00</td><td><span class="tag tag-ok"><span class="dot"></span>Pago</span></td></tr>
+                <tr><td><span class="tech">12/04</span></td><td>Lucas Tavares</td><td>Sucumbencial</td><td class="num">R$ 7.250,00</td><td><span class="tag tag-alerta"><span class="dot"></span>A receber</span></td></tr>
+                <tr><td><span class="tech">10/04</span></td><td>Ana C. Lopes</td><td>Contratual</td><td class="num">R$ 4.500,00</td><td><span class="tag tag-ok"><span class="dot"></span>Pago</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- MODELOS -->
+        <div class="demo-panel" data-panel="modelos">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap">
+            <div>
+              <h2 style="font-family:var(--f-display);font-weight:400;font-size:1.8rem;margin:0;line-height:1.1">Modelos</h2>
+              <p style="font-family:var(--f-display);font-style:italic;color:var(--text-muted);margin:4px 0 0;font-size:.95rem">24 peças prontas · versionamento automático · clonável e editável.</p>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-primary btn-sm" onclick="showToast('Modelo criado','Arquivo em rascunho · v1')"><svg width="12" height="12"><use href="#ic-plus"/></svg>Novo modelo</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="filter-bar">
+              <span class="label">Categoria</span>
+              <span class="chip active">Todas <span class="x">×</span></span>
+              <span class="chip">Trabalhista</span>
+              <span class="chip">Cível</span>
+              <span class="chip">Contratos</span>
+              <span class="chip">Tributário</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:18px">
+              <div class="feat" style="padding:20px"><div class="num" style="margin-bottom:8px">CÍVEL · v 2</div><h3 style="font-size:1.1rem;margin:0 0 6px">Petição inicial — danos morais</h3><p style="font-size:.78rem;margin:0 0 10px">Ação indenizatória com base em violação de direitos da personalidade.</p><div class="tech" style="color:var(--text-muted);font-size:.7rem">14 usos · atualizado 02/04</div></div>
+              <div class="feat" style="padding:20px"><div class="num" style="margin-bottom:8px">CONTRATOS · v 7</div><h3 style="font-size:1.1rem;margin:0 0 6px">Honorários ad exitum</h3><p style="font-size:.78rem;margin:0 0 10px">Prestação de serviços advocatícios com cláusula de êxito.</p><div class="tech" style="color:var(--text-muted);font-size:.7rem">22 usos · atualizado 28/03</div></div>
+              <div class="feat" style="padding:20px"><div class="num" style="margin-bottom:8px">TRABALHISTA · v 3</div><h3 style="font-size:1.1rem;margin:0 0 6px">Recurso ordinário · TRT</h3><p style="font-size:.78rem;margin:0 0 10px">Preliminares e mérito em seções pré-formatadas.</p><div class="tech" style="color:var(--text-muted);font-size:.7rem">9 usos · atualizado 10/03</div></div>
+              <div class="feat" style="padding:20px"><div class="num" style="margin-bottom:8px">CÍVEL · v 2</div><h3 style="font-size:1.1rem;margin:0 0 6px">Réplica padrão</h3><p style="font-size:.78rem;margin:0 0 10px">Impugnação documental e refutação de teses.</p><div class="tech" style="color:var(--text-muted);font-size:.7rem">11 usos · atualizado 02/03</div></div>
+              <div class="feat" style="padding:20px"><div class="num" style="margin-bottom:8px">CONTRATOS · v 1</div><h3 style="font-size:1.1rem;margin:0 0 6px">Procuração ad judicia</h3><p style="font-size:.78rem;margin:0 0 10px">Outorga de poderes com cláusula et extra padrão.</p><div class="tech" style="color:var(--text-muted);font-size:.7rem">47 usos · atualizado 15/02</div></div>
+              <div class="feat" style="padding:20px"><div class="num" style="margin-bottom:8px">TRIBUTÁRIO · v 1</div><h3 style="font-size:1.1rem;margin:0 0 6px">MS · ICMS interestadual</h3><p style="font-size:.78rem;margin:0 0 10px">Impetração contra exigências de ICMS sobre operações interestaduais.</p><div class="tech" style="color:var(--text-muted);font-size:.7rem">4 usos · atualizado 22/01</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONFIG -->
+        <div class="demo-panel" data-panel="config">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap">
+            <div>
+              <h2 style="font-family:var(--f-display);font-weight:400;font-size:1.8rem;margin:0;line-height:1.1">Configurações</h2>
+              <p style="font-family:var(--f-display);font-style:italic;color:var(--text-muted);margin:4px 0 0;font-size:.95rem">Preferências, backup, licença, integrações, exportação.</p>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head"><h3>Licença atual</h3></div>
+              <div class="card-body padded">
+                <div class="alert ok" style="margin-bottom:14px"><span class="ic"><svg><use href="#ic-check"/></svg></span><div class="body"><div class="title">Licença ativa</div><div class="desc">Pagamento único · atualizações de segurança até 2036.</div></div></div>
+                <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:.85rem"><span>Plano</span><span class="tag tag-dourado"><span class="dot"></span>Equipe</span></div>
+                <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:.85rem"><span>Identificador</span><span class="tech">GNL-202604-8F3A29</span></div>
+                <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:.85rem"><span>Adquirido em</span><span class="tech">14/04/2026</span></div>
+                <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:.85rem"><span>Expiração</span><span class="tag tag-ok"><span class="dot"></span>Vitalícia</span></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-head"><h3>Integrações</h3></div>
+              <div class="card-body padded" style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--border);border-radius:var(--r-card)"><div style="width:36px;height:36px;border-radius:6px;background:var(--surface-alt);display:grid;place-items:center;font-family:var(--f-display);color:var(--gnl-dourado);font-weight:600">DJ</div><div style="flex:1"><div style="font-weight:600;font-size:.85rem">DataJud (CNJ)</div><div style="font-size:.72rem;color:var(--text-muted)">API pública · 5s para 42 processos</div></div><span class="tag tag-ok"><span class="dot"></span>Conectado</span></div>
+                <div style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--border);border-radius:var(--r-card)"><div style="width:36px;height:36px;border-radius:6px;background:var(--surface-alt);display:grid;place-items:center;font-family:var(--f-display);color:var(--gnl-dourado);font-weight:600">PJ</div><div style="flex:1"><div style="font-weight:600;font-size:.85rem">PJe</div><div style="font-size:.72rem;color:var(--text-muted)">TRF1 · TRF2 · TRF3 · TRF5 · TRF6</div></div><span class="tag tag-ok"><span class="dot"></span>Cert. A3</span></div>
+                <div style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--border);border-radius:var(--r-card)"><div style="width:36px;height:36px;border-radius:6px;background:var(--surface-alt);display:grid;place-items:center;font-family:var(--f-display);color:var(--gnl-dourado);font-weight:600">eS</div><div style="flex:1"><div style="font-weight:600;font-size:.85rem">e-SAJ</div><div style="font-size:.72rem;color:var(--text-muted)">TJSP · consulta + peticionamento</div></div><span class="tag tag-ok"><span class="dot"></span>OAB</span></div>
+                <div style="display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--border);border-radius:var(--r-card)"><div style="width:36px;height:36px;border-radius:6px;background:var(--surface-alt);display:grid;place-items:center;font-family:var(--f-display);color:var(--gnl-dourado);font-weight:600">PR</div><div style="flex:1"><div style="font-weight:600;font-size:.85rem">Projudi</div><div style="font-size:.72rem;color:var(--text-muted)">PR · MA · estados específicos</div></div><button class="btn btn-ghost btn-sm" onclick="showToast('Conexão iniciada','Autenticando certificado…')">Conectar</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FUNCIONALIDADES DETALHADAS ===================== -->
+  <section class="section" id="funcionalidades">
+    <div class="section-head">
+      <div class="h4">Capítulo 12 · Módulos</div>
+      <h2>Sete módulos. Um sistema.</h2>
+      <p>Granola não é um canivete suíço — é uma ferramenta de mesa. Cada módulo resolve uma dor real do expediente forense, sem parafernália.</p>
+    </div>
+    <div class="features">
+      <div class="feat">
+        <div class="num">01 · AGORA</div>
+        <h3>Painel com o que importa hoje</h3>
+        <p>KPIs, prazos fatais, alertas, atividade recente e calendário — tudo visível ao abrir o sistema. Sem dashboards lotados.</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Prazos críticos em destaque</li>
+          <li><svg><use href="#ic-check"/></svg>Alertas DataJud em tempo real</li>
+          <li><svg><use href="#ic-check"/></svg>Atividade da equipe unificada</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <div class="num">02 · CLIENTES</div>
+        <h3>Ficha viva de cada cliente</h3>
+        <p>PF ou PJ, CPF ou CNPJ, processos vinculados, histórico financeiro e última interação — tudo em uma tela.</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Exportação CSV e PDF</li>
+          <li><svg><use href="#ic-check"/></svg>Busca fonética e por documento</li>
+          <li><svg><use href="#ic-check"/></svg>Tags premium, ativo, inativo</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <div class="num">03 · PROCESSOS</div>
+        <h3>DataJud, PJe, e-SAJ integrados</h3>
+        <p>Sincronização automática com CNJ, TJSP, TRFs e justiça do trabalho. Certificado digital A3 reconhecido.</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>5 segundos para 42 processos</li>
+          <li><svg><use href="#ic-check"/></svg>Movimentações consolidadas</li>
+          <li><svg><use href="#ic-check"/></svg>Status claro: fatal, alerta, ok</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <div class="num">04 · AGENDA</div>
+        <h3>Prazos, audiências e reuniões</h3>
+        <p>Visualização em mês, semana ou lista. Prazos importados automaticamente do tribunal, com lembrete 48h e 24h antes.</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Sincronização com Google Calendar</li>
+          <li><svg><use href="#ic-check"/></svg>Categorias por cor e função</li>
+          <li><svg><use href="#ic-check"/></svg>Prazos fatais em destaque</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <div class="num">05 · FINANCEIRO</div>
+        <h3>Honorários sem planilhas paralelas</h3>
+        <p>Lançamentos contratuais, sucumbenciais e de êxito. Gráficos, composição de receita e inadimplência — prontos para o contador.</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Exportação para o contador em 1 clique</li>
+          <li><svg><use href="#ic-check"/></svg>Relatórios DRE e fluxo de caixa</li>
+          <li><svg><use href="#ic-check"/></svg>Conciliação bancária CSV</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <div class="num">06 · MODELOS</div>
+        <h3>Peças prontas com versionamento</h3>
+        <p>Petições iniciais, recursos, contratos, procurações — 24 modelos base, clonáveis e versionados. Você edita, o Granola lembra.</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Substituição automática de variáveis</li>
+          <li><svg><use href="#ic-check"/></svg>Histórico completo por peça</li>
+          <li><svg><use href="#ic-check"/></svg>Exportação DOCX e PDF</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <div class="num">07 · CONFIGURAÇÕES</div>
+        <h3>Backup, licença, integrações</h3>
+        <p>Backup local automático às 22h14. Nuvem <em>opcional</em>, desligada por padrão. Equipe de até 5 usuários com papéis distintos.</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Backup em pendrive ou SFTP próprio</li>
+          <li><svg><use href="#ic-check"/></svg>Tema claro · tema escuro</li>
+          <li><svg><use href="#ic-check"/></svg>Permissões granulares</li>
+        </ul>
+      </div>
+      <div class="feat" style="background:var(--gnl-roxo);color:var(--gnl-marfim);border-color:var(--gnl-dourado)">
+        <div class="num" style="color:var(--gnl-dourado)">BÔNUS</div>
+        <h3 style="color:var(--gnl-marfim)">Atualizações de segurança<br/>até 2036</h3>
+        <p style="color:rgba(240,236,232,.75)">Paga uma vez, recebe correções de segurança e melhorias por 10 anos. Sem armadilha de fim de suporte.</p>
+        <ul>
+          <li><svg style="color:var(--gnl-dourado)"><use href="#ic-check"/></svg><span style="color:rgba(240,236,232,.9)">Patches mensais de segurança</span></li>
+          <li><svg style="color:var(--gnl-dourado)"><use href="#ic-check"/></svg><span style="color:rgba(240,236,232,.9)">Novas integrações de tribunais</span></li>
+          <li><svg style="color:var(--gnl-dourado)"><use href="#ic-check"/></svg><span style="color:rgba(240,236,232,.9)">Compatibilidade com novos formatos CNJ</span></li>
+        </ul>
+      </div>
+      <div class="feat">
+        <div class="num">GARANTIA</div>
+        <h3>7 dias para devolver</h3>
+        <p>Instalou, testou, não gostou? Devolvemos 100% do valor em até 7 dias corridos. Sem burocracia, sem "mas".</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Reembolso integral</li>
+          <li><svg><use href="#ic-check"/></svg>Sem questionamento</li>
+          <li><svg><use href="#ic-check"/></svg>Dados exportáveis antes da saída</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCREENSHOTS / PRINTS ===================== -->
+  <section class="section" id="prints">
+    <div class="section-head">
+      <div class="h4">Capítulo 13 · Interface</div>
+      <h2>Como Granola aparece em tela.</h2>
+      <p>Design lastreado em um brandbook próprio — paleta Roxo/Dourado/Marfim, tipografia Cormorant Garamond + Inter. Nada é decorativo.</p>
+    </div>
+    <div class="shots">
+      <div class="shot">
+        <div class="shot-head"><div class="dots"><span></span><span></span><span></span></div><span class="title">granola · agora</span></div>
+        <div class="shot-content" style="padding:14px">
+          <div style="font-family:var(--f-display);font-size:1.2rem;margin-bottom:10px">Boa tarde, <em style="color:var(--gnl-dourado)">Dr. Claudio.</em></div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:10px">
+            <div style="background:rgba(198,158,91,.12);padding:10px;border-radius:4px"><div style="font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);font-weight:600">Prazos</div><div style="font-family:var(--f-display);font-size:1.5rem;color:var(--gnl-roxo)">12</div></div>
+            <div style="background:var(--surface-alt);padding:10px;border-radius:4px"><div style="font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);font-weight:600">Processos</div><div style="font-family:var(--f-display);font-size:1.5rem">147</div></div>
+          </div>
+          <div style="font-size:.72rem;padding:8px 10px;border-left:3px solid var(--gnl-erro);background:rgba(168,58,58,.06);border-radius:3px;margin-bottom:6px"><strong>Prazo fatal em 24h</strong><div style="color:var(--text-muted);font-size:.66rem">Contestação · 1005826-83.2023.5.02.0001</div></div>
+          <div style="font-size:.72rem;padding:8px 10px;border-left:3px solid var(--gnl-sucesso);background:rgba(58,125,68,.05);border-radius:3px"><strong>Backup local concluído</strong><div style="color:var(--text-muted);font-size:.66rem">22h14 · 38 MB · sem erros</div></div>
+        </div>
+        <div class="cap">Painel inicial · alertas imediatos.</div>
+      </div>
+      <div class="shot">
+        <div class="shot-head"><div class="dots"><span></span><span></span><span></span></div><span class="title">granola · financeiro</span></div>
+        <div class="shot-content" style="padding:14px">
+          <div style="font-family:var(--f-display);font-size:1.2rem;margin-bottom:12px">Receita · Abril</div>
+          <div style="display:flex;align-items:flex-end;gap:8px;height:110px;margin-bottom:10px">
+            <div style="flex:1;height:48%;background:var(--gnl-roxo-claro);border-radius:3px 3px 0 0"></div>
+            <div style="flex:1;height:62%;background:var(--gnl-roxo-claro);border-radius:3px 3px 0 0"></div>
+            <div style="flex:1;height:55%;background:var(--gnl-roxo-claro);border-radius:3px 3px 0 0"></div>
+            <div style="flex:1;height:88%;background:var(--gnl-dourado);border-radius:3px 3px 0 0;position:relative"><span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-family:var(--f-mono);font-size:.62rem;color:var(--gnl-roxo)">48k</span></div>
+            <div style="flex:1;height:18%;background:var(--gnl-fumaca);opacity:.4;border-radius:3px 3px 0 0"></div>
+          </div>
+          <div style="font-size:.62rem;display:flex;justify-content:space-around;color:var(--text-muted);font-family:var(--f-mono);margin-bottom:12px">jan · fev · mar · abr · mai</div>
+          <div style="height:6px;background:var(--surface-alt);border-radius:3px;overflow:hidden;margin-bottom:4px"><div style="width:59%;height:100%;background:var(--gnl-dourado)"></div></div>
+          <div style="font-size:.66rem;color:var(--text-muted);font-family:var(--f-mono)">Contratual · 59%</div>
+        </div>
+        <div class="cap">Composição da receita · mês a mês.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPARATIVO ===================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="h4">Capítulo 14 · Honestidade</div>
+      <h2>Granola vs. CRMs jurídicos populares.</h2>
+      <p>Não temos tudo o que os concorrentes oferecem — e temos coisas que eles nunca vão ter. Leia e decida.</p>
+    </div>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th class="gnl">GRANOLA<span>· pagamento único</span></th>
+            <th>Concorrentes típicos<br/><span style="font-weight:400;text-transform:none;font-size:.74rem">Projuris, Astrea, ADV+</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Forma de cobrança</td><td class="gnl"><span class="check">Pagamento único</span></td><td>Assinatura mensal</td></tr>
+          <tr><td>Armazenamento de dados</td><td class="gnl"><span class="check">Seu computador</span></td><td>Servidor do fornecedor</td></tr>
+          <tr><td>Funciona offline</td><td class="gnl"><span class="check">Sim, por padrão</span></td><td><span class="xmark">Não</span></td></tr>
+          <tr><td>DataJud, PJe, e-SAJ</td><td class="gnl"><span class="check">Incluídos</span></td><td><span class="partial">Plano avançado</span></td></tr>
+          <tr><td>Peticionamento eletrônico</td><td class="gnl"><span class="check">Incluído</span></td><td><span class="partial">Módulo pago à parte</span></td></tr>
+          <tr><td>Modelos com versionamento</td><td class="gnl"><span class="check">24 modelos base</span></td><td><span class="partial">Básico</span></td></tr>
+          <tr><td>Backup em pendrive / SFTP próprio</td><td class="gnl"><span class="check">Sim</span></td><td><span class="xmark">Não</span></td></tr>
+          <tr><td>Atualizações de segurança</td><td class="gnl"><span class="check">Até 2036</span></td><td>Enquanto pagar</td></tr>
+          <tr><td>Exportação dos dados na saída</td><td class="gnl"><span class="check">Total · CSV, PDF, SQL</span></td><td><span class="partial">Parcial</span></td></tr>
+          <tr><td>Conformidade LGPD · controlador</td><td class="gnl"><span class="check">Você</span></td><td>Fornecedor</td></tr>
+          <tr><td>Custo médio em 5 anos</td><td class="gnl"><strong>R$ 1.249 (única vez)</strong></td><td>R$ 11.940+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== PLANOS ===================== -->
+  <section class="section" id="planos">
+    <div class="section-head">
+      <div class="h4">Capítulo 15 · Preço</div>
+      <h2>Dois planos. Uma regra: paga uma vez, usa para sempre.</h2>
+      <p>Os dois planos incluem os 7 módulos, todas as integrações e atualizações de segurança até 2036. A única diferença é quantas pessoas vão usar.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Granola Solo</div>
+        <h3>Para o advogado autônomo</h3>
+        <p class="plan-sub">Você, sua OAB e seus processos.</p>
+        <div class="price-big"><span class="currency">R$</span>897</div>
+        <div class="price-note">pagamento único · sem renovação</div>
+        <div class="price-install">ou 12× de R$ 82,17 no cartão</div>
+        <ul class="feat-list">
+          <li><svg><use href="#ic-check"/></svg>1 usuário</li>
+          <li><svg><use href="#ic-check"/></svg>Todos os 7 módulos</li>
+          <li><svg><use href="#ic-check"/></svg>DataJud · PJe · e-SAJ · Projudi</li>
+          <li><svg><use href="#ic-check"/></svg>Backup local + pendrive</li>
+          <li><svg><use href="#ic-check"/></svg>Suporte por e-mail</li>
+          <li><svg><use href="#ic-check"/></svg>Atualizações até 2036</li>
+        </ul>
+        <a href="#cadastro" class="btn btn-ghost btn-block" onclick="selectPlan('solo')">Escolher Solo</a>
+      </div>
+      <div class="plan featured">
+        <div class="ribbon">Mais vendido</div>
+        <div class="plan-name">Granola Equipe</div>
+        <h3>Para escritório pequeno</h3>
+        <p class="plan-sub">Até cinco pessoas, uma licença.</p>
+        <div class="price-big"><span class="currency">R$</span>1.249</div>
+        <div class="price-note">pagamento único · sem renovação</div>
+        <div class="price-install">ou 12× de R$ 114,42 no cartão</div>
+        <ul class="feat-list">
+          <li><svg><use href="#ic-check"/></svg>Até 5 usuários com papéis</li>
+          <li><svg><use href="#ic-check"/></svg>Todos os 7 módulos</li>
+          <li><svg><use href="#ic-check"/></svg>Todas as integrações</li>
+          <li><svg><use href="#ic-check"/></svg>Backup SFTP próprio</li>
+          <li><svg><use href="#ic-check"/></svg>Suporte prioritário</li>
+          <li><svg><use href="#ic-check"/></svg>Atualizações até 2036</li>
+          <li><svg><use href="#ic-check"/></svg>Migração de outros CRMs</li>
+        </ul>
+        <a href="#cadastro" class="btn btn-primary btn-block" onclick="selectPlan('equipe')">Escolher Equipe</a>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:20px 24px;border:1px dashed var(--border-strong);border-radius:var(--r-card);background:var(--surface-alt);display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+      <div style="flex:1;min-width:260px">
+        <div style="font-weight:600;color:var(--text);margin-bottom:4px">Formas de pagamento</div>
+        <div style="font-size:.82rem;color:var(--text-muted)">PIX (à vista · 5% OFF) · cartão até 12× sem juros · boleto à vista · transferência bancária.</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;font-size:.75rem;color:var(--text-muted)">
+        <svg width="14" height="14"><use href="#ic-lock"/></svg>
+        Processamento via Pagar.me · certificado TLS 1.3
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VOZES / DEPOIMENTOS ===================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="h4">Capítulo 16 · Vozes</div>
+      <h2>O que advogados vão dizer sobre Granola.</h2>
+      <p>Estamos em programa de acesso antecipado. Nada de depoimento fabricado: esse espaço fica reservado para quem testar de verdade.</p>
+    </div>
+    <div class="voices-placeholder">
+      <svg class="quote-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M14 34q-4 0-4-5v-3q0-7 4-12t10-6l1 3q-5 1-8 4.5t-3 7.5h5q3 0 3 3v5q0 3-3 3h-5zm22 0q-4 0-4-5v-3q0-7 4-12t10-6l1 3q-5 1-8 4.5t-3 7.5h5q3 0 3 3v5q0 3-3 3h-5z" fill="currentColor"/>
+      </svg>
+      <p class="placeholder-text">Assim que testado, os 100 primeiros poderão colocar todos os comentários aqui!</p>
+      <div class="placeholder-meta">
+        <span class="pill-badge">acesso antecipado</span>
+        <span class="pill-badge">100 primeiros advogados</span>
+        <span class="pill-badge">OAB verificada</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section" id="faq">
+    <div class="section-head">
+      <div class="h4">Capítulo 17 · Perguntas</div>
+      <h2>Perguntas frequentes.</h2>
+      <p>Se sua dúvida não estiver aqui, mande por WhatsApp ou e-mail. Respondemos até o fim do dia útil.</p>
+    </div>
+    <div class="faq">
+      <details class="faq-item" open>
+        <summary>É pagamento único mesmo? Não tem pegadinha?</summary>
+        <div class="answer">
+          <p>Sim. Você paga uma vez e usa para sempre, sem renovação, sem cobrança anual, sem assinatura disfarçada. A licença é sua. A única cobrança adicional opcional é pelo módulo <strong>Granola Cloud</strong> (sincronização em nuvem), que existe apenas para quem quer — e vem desligado por padrão.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso de internet para usar?</summary>
+        <div class="answer">
+          <p>Não. O Granola roda localmente no seu computador e todos os dados ficam armazenados ali. A internet só é usada para sincronizar com DataJud, PJe, e-SAJ e Projudi — mas se você estiver offline (fórum sem sinal, avião, apagão), o sistema continua funcionando normalmente. A sincronização volta automaticamente quando a conexão retorna.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>E se meu computador quebrar? Perco tudo?</summary>
+        <div class="answer">
+          <p>Não. O backup é automático toda noite às 22h14, salvo em pendrive (opcional) ou em servidor SFTP próprio (opcional). Em um novo computador, basta instalar o Granola e importar o arquivo de backup — tudo volta exatamente como estava, inclusive os modelos, clientes e processos.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Recebo atualizações? Até quando?</summary>
+        <div class="answer">
+          <p>Sim. <strong>Atualizações de segurança estão garantidas até 2036</strong> (10 anos contados da versão 2.0). Isso inclui correções, patches de segurança, novas integrações de tribunais e compatibilidade com mudanças nos formatos do CNJ. As atualizações são baixadas automaticamente quando você está online — mas você pode pausar se quiser.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Posso migrar dos meus CRMs atuais?</summary>
+        <div class="answer">
+          <p>Sim. Aceitamos importação via CSV de praticamente qualquer CRM do mercado — Projuris, Astrea, ADV Fácil, Jurídico. Para o plano Equipe, a migração assistida está incluída. Para o Solo, oferecemos um guia passo a passo.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Como o Granola se comporta em relação à LGPD?</summary>
+        <div class="answer">
+          <p>Como os dados ficam no seu computador, <strong>você é o controlador</strong> — e não um fornecedor terceirizado. Isso simplifica drasticamente sua conformidade com a LGPD. Incluímos modelo de termo de consentimento, registro de operações e exportação dos dados de titulares em 1 clique. Cumprimos também o art. 37 (registro de operações) e o art. 50 (boas práticas).</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Quais sistemas operacionais são suportados?</summary>
+        <div class="answer">
+          <p>Windows 10 e 11, macOS 12 (Monterey) ou mais recente, e Linux Ubuntu 22.04 ou equivalente. O instalador é único para cada sistema e vem com todas as dependências. Não precisa instalar banco de dados, não precisa configurar servidor — é um duplo-clique.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>E se eu não gostar? Tem garantia?</summary>
+        <div class="answer">
+          <p>Sim. <strong>7 dias corridos de garantia incondicional</strong>. Se por qualquer motivo o Granola não atender suas expectativas, basta escrever um e-mail e devolvemos 100% do valor — sem burocracia, sem questionamento. Seus dados podem ser exportados antes da saída, em CSV, PDF ou SQL.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Como funciona o suporte?</summary>
+        <div class="answer">
+          <p>Plano Solo: por e-mail em até 24h úteis. Plano Equipe: prioritário em até 8h úteis, com WhatsApp dedicado para emergências. Não cobramos extra por chamados — sem plano premium de suporte.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===================== FORMULÁRIO DE CADASTRO ===================== -->
+  <section class="section" id="cadastro">
+    <div class="form-wrap">
+      <div class="form-side">
+        <div class="h4">Capítulo 18 · Aquisição</div>
+        <h2>Pronto para instalar no seu computador?</h2>
+        <p>Preencha os dados ao lado, escolha o plano e vá para o pagamento. Assim que confirmado, você recebe o instalador por e-mail e a licença vitalícia em PDF.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text"><div class="t">Cadastro rápido</div><div class="d">Dados do advogado, OAB e plano desejado. Leva 90 segundos.</div></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text"><div class="t">Pagamento seguro</div><div class="d">PIX, cartão até 12× ou boleto. Processado por Pagar.me.</div></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text"><div class="t">E-mail com download</div><div class="d">Instalador + licença em PDF + manual de primeiros passos.</div></div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-text"><div class="t">Primeira consulta grátis</div><div class="d">30 min por vídeochamada para instalação e configuração inicial.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <form name="granola-cadastro" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="granolaForm">
+          <input type="hidden" name="form-name" value="granola-cadastro" />
+          <div class="form-hp">
+            <label>Não preencha: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <div class="form-row">
+            <div class="field full">
+              <label>Nome completo <span class="req">*</span></label>
+              <input type="text" name="nome" required placeholder="Dr. João da Silva" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>OAB / UF <span class="req">*</span></label>
+              <input type="text" name="oab" required placeholder="372.868 / SP" style="font-family:var(--f-mono)" />
+            </div>
+            <div class="field">
+              <label>CPF <span class="req">*</span></label>
+              <input type="text" name="cpf" required placeholder="000.000.000-00" style="font-family:var(--f-mono)" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>E-mail <span class="req">*</span></label>
+              <input type="email" name="email" required placeholder="voce@escritorio.adv.br" />
+            </div>
+            <div class="field">
+              <label>WhatsApp <span class="req">*</span></label>
+              <input type="tel" name="whatsapp" required placeholder="(11) 98765-4321" style="font-family:var(--f-mono)" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field full">
+              <label>Escritório / razão social <span style="color:var(--gnl-fumaca);font-weight:500">(opcional)</span></label>
+              <input type="text" name="escritorio" placeholder="Silva & Associados Sociedade de Advogados" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>CNPJ <span style="color:var(--gnl-fumaca);font-weight:500">(p/ NF)</span></label>
+              <input type="text" name="cnpj" placeholder="00.000.000/0001-00" style="font-family:var(--f-mono)" />
+            </div>
+            <div class="field">
+              <label>Cidade · UF <span class="req">*</span></label>
+              <input type="text" name="cidade" required placeholder="São Paulo · SP" />
+            </div>
+          </div>
+
+          <div class="field full" style="margin-top:8px">
+            <label>Plano desejado <span class="req">*</span></label>
+            <div class="plan-radios">
+              <label class="plan-radio">
+                <input type="radio" name="plano" value="Solo · R$ 897" required />
+                <div class="info"><div class="n">Granola Solo</div><div class="d">1 usuário · todos os módulos</div></div>
+                <div class="price">R$ 897</div>
+              </label>
+              <label class="plan-radio">
+                <input type="radio" name="plano" value="Equipe · R$ 1.249" checked />
+                <div class="info"><div class="n">Granola Equipe · <em style="color:var(--gnl-dourado);font-style:normal;font-weight:600">mais vendido</em></div><div class="d">Até 5 usuários · suporte prioritário</div></div>
+                <div class="price">R$ 1.249</div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Forma de pagamento <span class="req">*</span></label>
+              <select name="pagamento" required>
+                <option value="">Selecione…</option>
+                <option value="PIX">PIX · à vista (5% OFF)</option>
+                <option value="Cartão">Cartão em até 12×</option>
+                <option value="Boleto">Boleto à vista</option>
+                <option value="Transferência">Transferência bancária</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Como nos conheceu?</label>
+              <select name="origem">
+                <option value="">Selecione…</option>
+                <option value="QR Code em material impresso">QR Code impresso</option>
+                <option value="Instagram">Instagram</option>
+                <option value="YouTube">YouTube</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Indicação de colega">Indicação de colega</option>
+                <option value="Evento/palestra">Evento / palestra</option>
+                <option value="Google">Busca no Google</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field full">
+            <label>Observações <span style="color:var(--gnl-fumaca);font-weight:500">(opcional)</span></label>
+            <textarea name="observacoes" placeholder="Vai migrar de outro CRM? Precisa de nota fiscal? Escreva aqui."></textarea>
+          </div>
+
+          <div class="form-foot">
+            <label class="checkbox-row">
+              <input type="checkbox" name="aceite_termos" required />
+              <span>Li e aceito os <a href="#" onclick="alert('Termos de uso · serão carregados no documento final.');return false">Termos de uso</a> e a <a href="#" onclick="alert('Política de privacidade · será carregada no documento final.');return false">Política de privacidade</a>.</span>
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" name="aceite_contato" checked />
+              <span>Quero receber comunicações sobre atualizações do Granola por e-mail e WhatsApp.</span>
+            </label>
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:12px">
+              <svg width="14" height="14"><use href="#ic-lock"/></svg>
+              Cadastrar e ir para pagamento
+            </button>
+            <p style="text-align:center;margin:14px 0 0;font-size:.72rem;color:var(--gnl-fumaca)">
+              Após cadastro, você receberá o link de pagamento no e-mail cadastrado.<br/>
+              Assim que confirmado, enviamos o instalador e a licença.
+            </p>
+          </div>
+        </form>
+
+        <div class="success-msg" id="successMsg">
+          <h3>Cadastro recebido.</h3>
+          <p>Em até 2 minutos você receberá o link de pagamento no e-mail. Se não chegar, confira o spam ou nos escreva no WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <section class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="mark">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="#F0ECE8"/>
+              <ellipse cx="50" cy="50" rx="18" ry="28" fill="none" stroke="#332030" stroke-width="2"/>
+              <text x="50" y="62" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="40" font-weight="500" font-style="italic" fill="#332030">g</text>
+              <circle cx="50" cy="18" r="1.8" fill="#C69E5B"/>
+              <circle cx="50" cy="82" r="1.8" fill="#C69E5B"/>
+            </svg>
+          </div>
+          <div>
+            <div class="txt">granola<em>CRM</em></div>
+            <div class="tagline">Do grão ao sistema.</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Produto</h4>
+        <ul>
+          <li><a href="#por-que">Por que Granola</a></li>
+          <li><a href="#demo">Demonstração</a></li>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#planos">Planos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ajuda</h4>
+        <ul>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="mailto:suporte@granola.app.br">suporte@granola.app.br</a></li>
+          <li><a href="https://wa.me/5515999999999" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#cadastro">Cadastrar-se</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" onclick="alert('Termos de uso');return false">Termos de uso</a></li>
+          <li><a href="#" onclick="alert('Política de privacidade');return false">Privacidade · LGPD</a></li>
+          <li><a href="#" onclick="alert('Contrato de licença');return false">Contrato de licença</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Granola CRM · Valerius Assessoria Empresarial · Sorocaba/SP · Brasil</div>
+      <div>granola.app.br · v 2.0.0 · Brandbook edição 02 · abril de 2026</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Toast live -->
+<div class="toast-live" id="toastLive">
+  <span class="ic"><svg width="16" height="16"><use href="#ic-check"/></svg></span>
+  <div class="body">
+    <div class="title" id="toastTitle">Ação concluída</div>
+    <div class="desc" id="toastDesc"></div>
+  </div>
+  <button class="x" onclick="document.getElementById('toastLive').classList.remove('show')">
+    <svg><use href="#ic-x"/></svg>
+  </button>
+</div>
+
+<script>
+/* ===== THEME TOGGLE ===== */
+const root = document.documentElement;
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
+  const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  root.dataset.theme = next;
+  themeBtn.textContent = 'Tema · ' + (next === 'dark' ? 'Escuro' : 'Claro');
+});
+
+/* ===== DEMO TABS ===== */
+const tabs = document.querySelectorAll('.demo-tab');
+const panels = document.querySelectorAll('.demo-panel');
+function switchPanel(name){
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.panel === name));
+  panels.forEach(p => p.classList.toggle('active', p.dataset.panel === name));
+  /* scroll suave para a demo */
+  const demoEl = document.getElementById('demo');
+  const rect = demoEl.getBoundingClientRect();
+  if(rect.top < -100 || rect.top > window.innerHeight){
+    demoEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+tabs.forEach(t => t.addEventListener('click', () => switchPanel(t.dataset.panel)));
+
+/* ===== TOAST ===== */
+let toastTimer;
+function showToast(title, desc){
+  const el = document.getElementById('toastLive');
+  document.getElementById('toastTitle').textContent = title;
+  document.getElementById('toastDesc').textContent = desc || '';
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3400);
+}
+
+/* ===== SELECIONAR PLANO ===== */
+function selectPlan(plan){
+  const map = { solo:'Solo · R$ 897', equipe:'Equipe · R$ 1.249' };
+  const value = map[plan];
+  const radios = document.querySelectorAll('input[name="plano"]');
+  radios.forEach(r => { if(r.value === value) r.checked = true; });
+  showToast('Plano selecionado', value);
+}
+
+/* ===== FORMATADORES DE INPUT ===== */
+function onlyDigits(s){ return s.replace(/\D/g,''); }
+function fmtCPF(v){
+  v = onlyDigits(v).slice(0,11);
+  return v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+}
+function fmtCNPJ(v){
+  v = onlyDigits(v).slice(0,14);
+  return v.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2');
+}
+function fmtPhone(v){
+  v = onlyDigits(v).slice(0,11);
+  if(v.length <= 10) return v.replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{4})(\d)/,'$1-$2');
+  return v.replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2');
+}
+function attachFormatter(selector, fn){
+  const el = document.querySelector(selector);
+  if(!el) return;
+  el.addEventListener('input', e => { e.target.value = fn(e.target.value); });
+}
+attachFormatter('input[name="cpf"]', fmtCPF);
+attachFormatter('input[name="cnpj"]', fmtCNPJ);
+attachFormatter('input[name="whatsapp"]', fmtPhone);
+
+/* ===== FORM SUBMIT (Netlify Forms) =====
+   Netlify intercepta o submit por causa do atributo data-netlify="true".
+   Fazemos um fetch manual para mostrar a mensagem de sucesso sem redirecionar.
+*/
+const form = document.getElementById('granolaForm');
+const successMsg = document.getElementById('successMsg');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  const body = new URLSearchParams(data).toString();
+  try{
+    const resp = await fetch('/', {
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body
+    });
+    if(resp.ok){
+      form.style.display = 'none';
+      successMsg.classList.add('show');
+      showToast('Cadastro enviado', 'Confira seu e-mail em alguns instantes.');
+      /* scroll para o form card */
+      document.getElementById('cadastro').scrollIntoView({behavior:'smooth', block:'start'});
+    } else {
+      throw new Error('HTTP ' + resp.status);
+    }
+  } catch(err){
+    showToast('Erro no envio', 'Tente novamente ou escreva para suporte@granola.app.br');
+  }
+});
+
+/* ===== FIRST IMPRESSION TOAST ===== */
+setTimeout(() => showToast('Granola está pronto', 'Navegue pela demonstração abaixo.'), 1200);
+</script>
+</body>
+</html>

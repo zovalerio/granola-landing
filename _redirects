@@ -1,0 +1,6 @@
+# Força HTTPS + www (opcional — descomente após apontar DNS)
+# http://granola.app.br/*    https://granola.app.br/:splat    301!
+# https://www.granola.app.br/*    https://granola.app.br/:splat    301!
+
+# Fallback 404 → página principal
+/*    /index.html   200
