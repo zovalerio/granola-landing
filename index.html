@@ -1165,7 +1165,7 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
           <tr><td>Atualizações de segurança</td><td class="gnl"><span class="check">Suporte integral</span></td><td>Enquanto pagar</td></tr>
           <tr><td>Exportação dos dados na saída</td><td class="gnl"><span class="check">Total · CSV, PDF, SQL</span></td><td><span class="partial">Parcial</span></td></tr>
           <tr><td>Conformidade LGPD · controlador</td><td class="gnl"><span class="check">Você</span></td><td>Fornecedor</td></tr>
-          <tr><td>Custo médio em 5 anos</td><td class="gnl"><strong>R$ 1.249 (única vez)</strong></td><td>R$ 11.940+</td></tr>
+          <tr><td>Custo médio em 5 anos</td><td class="gnl"><strong>pagamento único</strong></td><td>R$ 11.940+ (estimado)</td></tr>
         </tbody>
       </table>
     </div>
@@ -1174,8 +1174,8 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
   <!-- ===================== PLANOS ===================== -->
   <section class="section" id="planos">
     <div class="section-head">
-      <div class="h4">Capítulo 15 · Preço</div>
-      <h2>Dois planos. Uma regra: paga uma vez, usa para sempre.</h2>
+      <div class="h4">Capítulo 15 · Planos</div>
+      <h2>Dois planos. Uma regra: você escolhe o que serve ao seu escritório.</h2>
       <p>Os dois planos incluem os 7 módulos, todas as integrações e suporte integral. A única diferença é quantas pessoas vão usar.</p>
     </div>
     <div class="plans">
@@ -1183,9 +1183,7 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
         <div class="plan-name">Granola Solo</div>
         <h3>Para o advogado autônomo</h3>
         <p class="plan-sub">Você, sua OAB e seus processos.</p>
-        <div class="price-big"><span class="currency">R$</span>897</div>
-        <div class="price-note">pagamento único · sem renovação</div>
-        <div class="price-install">ou 12× de R$ 82,17 no cartão</div>
+        
         <ul class="feat-list">
           <li><svg><use href="#ic-check"/></svg>1 usuário</li>
           <li><svg><use href="#ic-check"/></svg>Todos os 7 módulos</li>
@@ -1201,9 +1199,7 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
         <div class="plan-name">Granola Equipe</div>
         <h3>Para escritório pequeno</h3>
         <p class="plan-sub">Até cinco pessoas, uma licença.</p>
-        <div class="price-big"><span class="currency">R$</span>1.249</div>
-        <div class="price-note">pagamento único · sem renovação</div>
-        <div class="price-install">ou 12× de R$ 114,42 no cartão</div>
+        
         <ul class="feat-list">
           <li><svg><use href="#ic-check"/></svg>Até 5 usuários com papéis</li>
           <li><svg><use href="#ic-check"/></svg>Todos os 7 módulos</li>
@@ -1216,14 +1212,6 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
         <a href="#cadastro" class="btn btn-primary btn-block" onclick="selectPlan('equipe')">Tenho interesse neste plano</a>
       </div>
     </div>
-    <div style="margin-top:32px;padding:20px 24px;border:1px dashed var(--border-strong);border-radius:var(--r-card);background:var(--surface-alt);display:flex;align-items:center;gap:18px;flex-wrap:wrap">
-      <div style="flex:1;min-width:260px">
-        <div style="font-weight:600;color:var(--text);margin-bottom:4px">Formas de pagamento</div>
-        <div style="font-size:.82rem;color:var(--text-muted)">PIX (à vista · 5% OFF) · cartão até 12× sem juros · boleto à vista · transferência bancária.</div>
-      </div>
-      <div style="display:flex;gap:10px;align-items:center;font-size:.75rem;color:var(--text-muted)">
-        <svg width="14" height="14"><use href="#ic-arrow"/></svg>
-        Dados protegidos · criptografia TLS 1.3</div>
     </div>
   </section>
 
@@ -1546,11 +1534,8 @@ function showToast(title, desc){
 
 /* ===== SELECIONAR PLANO ===== */
 function selectPlan(plan){
-  const map = { solo:'Solo · R$ 897', equipe:'Equipe · R$ 1.249' };
-  const value = map[plan];
-  const radios = document.querySelectorAll('input[name="plano"]');
-  radios.forEach(r => { if(r.value === value) r.checked = true; });
-  showToast('Plano selecionado', value);
+  showToast('Interesse registrado', plan === 'solo' ? 'Granola Solo' : 'Granola Equipe');
+  document.getElementById('cadastro').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 /* ===== FORMATADORES DE INPUT ===== */
