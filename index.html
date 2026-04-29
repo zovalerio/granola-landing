@@ -108,8 +108,8 @@ svg{display:block}
 .topnav a.lk{text-decoration:none;color:var(--text-muted);padding:8px 14px;border-radius:var(--r-pill);font-size:.8125rem;font-weight:500;white-space:nowrap;transition:all .15s ease}
 .topnav a.lk:hover{color:var(--text);background:rgba(198,158,91,.1)}
 .topnav .brandmark{display:flex;align-items:center;gap:10px;margin-right:28px;text-decoration:none}
-.topnav .brandmark .m{width:34px;height:34px;border-radius:50%;background:var(--gnl-roxo);display:grid;place-items:center;overflow:hidden;border:1px solid rgba(198,158,91,.3)}
-.topnav .brandmark .m svg{width:82%;height:82%}
+.topnav .brandmark .m{width:38px;height:38px;border-radius:50%;background:#F0ECE8;display:grid;place-items:center;overflow:hidden;border:1px solid rgba(198,158,91,.3)}
+.topnav .brandmark .m img{width:100%;height:100%;object-fit:contain;display:block}
 .topnav .brandmark .txt{font-family:var(--f-display);font-size:1.55rem;color:var(--text);font-weight:500;line-height:1}
 .topnav .brandmark .txt span{display:block;font-family:var(--f-text);font-size:.54rem;letter-spacing:.32em;color:var(--gnl-dourado);font-weight:600;margin-top:2px;text-transform:uppercase}
 .topnav .spc{flex:1}
@@ -472,8 +472,8 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
 .footer{margin-top:96px;padding:40px 0 20px;border-top:1px solid var(--gnl-dourado)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
 .footer-brand{display:flex;align-items:center;gap:18px}
-.footer-brand .mark{width:72px;height:72px;border-radius:50%;background:var(--gnl-roxo);display:grid;place-items:center;overflow:hidden;border:1px solid rgba(198,158,91,.3)}
-.footer-brand .mark svg{width:82%;height:82%}
+.footer-brand .mark{width:80px;height:80px;border-radius:50%;background:#F0ECE8;display:grid;place-items:center;overflow:hidden;border:1px solid rgba(198,158,91,.3)}
+.footer-brand .mark img{width:100%;height:100%;object-fit:contain;display:block}
 .footer-brand .txt{font-family:var(--f-display);font-size:1.9rem;color:var(--text);line-height:1.1}
 .footer-brand .txt em{font-style:italic;color:var(--gnl-dourado);font-size:.85rem;font-family:var(--f-display);letter-spacing:.02em;margin-left:6px}
 .footer-brand .tagline{font-family:var(--f-display);font-style:italic;color:var(--text-muted);font-size:1.05rem;margin-top:4px}
@@ -581,13 +581,7 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
   <div class="topnav-inner">
     <a href="#topo" class="brandmark">
       <span class="m">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#F0ECE8"/>
-          <ellipse cx="50" cy="50" rx="18" ry="28" fill="none" stroke="#332030" stroke-width="2"/>
-          <text x="50" y="62" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="40" font-weight="500" font-style="italic" fill="#332030">g</text>
-          <circle cx="50" cy="18" r="1.8" fill="#C69E5B"/>
-          <circle cx="50" cy="82" r="1.8" fill="#C69E5B"/>
-        </svg>
+        <img src="/assets/logo-granola-brasao.png" alt="Granola CRM" />
       </span>
       <span class="txt">granola<span>CRM</span></span>
     </a>
@@ -610,8 +604,8 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
     <div class="hero">
       <div class="hero-content">
         <div class="eyebrow">CRM para advogados · Pagamento único</div>
-        <h1>Do grão<br/>ao <em>sistema.</em></h1>
-        <p class="tagline">O CRM jurídico que não aluga seus dados. Instala no seu computador, funciona offline, e a licença é sua — para sempre.</p>
+        <h1>Mais leve<br/><em>prazo em dia.</em></h1>
+        <p class="tagline">Para escritórios que levam trabalho a sério.</p>
         <div class="cta-row">
           <a href="#cadastro" class="btn btn-primary btn-lg">
             Comprar acesso vitalício
@@ -1496,7 +1490,7 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
 
         <div class="success-msg" id="successMsg">
           <h3>Cadastro recebido.</h3>
-          <p>Em poucos minutos você receberá o link de pagamento Asaas no e-mail (e também por SMS). Se não chegar, confira o spam ou nos escreva no WhatsApp.</p>
+          <p>Em poucos minutos você receberá o link de pagamento Asaas no seu e-mail. Se não chegar, confira o spam ou nos escreva no WhatsApp.</p>
         </div>
       </div>
     </div>
@@ -1508,17 +1502,11 @@ main{max-width:1320px;margin:0 auto;padding:48px 32px 96px}
       <div>
         <div class="footer-brand">
           <div class="mark">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="48" fill="#F0ECE8"/>
-              <ellipse cx="50" cy="50" rx="18" ry="28" fill="none" stroke="#332030" stroke-width="2"/>
-              <text x="50" y="62" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="40" font-weight="500" font-style="italic" fill="#332030">g</text>
-              <circle cx="50" cy="18" r="1.8" fill="#C69E5B"/>
-              <circle cx="50" cy="82" r="1.8" fill="#C69E5B"/>
-            </svg>
+            <img src="/assets/logo-granola-brasao.png" alt="Granola CRM" />
           </div>
           <div>
             <div class="txt">granola<em>CRM</em></div>
-            <div class="tagline">Do grão ao sistema.</div>
+            <div class="tagline">Do grão aos autos.</div>
           </div>
         </div>
       </div>
